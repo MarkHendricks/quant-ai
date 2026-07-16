@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
+  <!-- placeholder logo — replace with the course logo -->
+  <rect x="2" y="6" width="48" height="48" rx="8" fill="#12312b"/>
+  <path d="M12 42 V18 l8 12 8-12 v24" fill="none" stroke="#29b9c8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="60" y="38" font-family="Georgia, serif" font-size="20" fill="#12312b">Course Logo</text>
+</svg>

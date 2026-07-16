@@ -1,0 +1,47 @@
+# Course content manifest — quant-ai
+# Items resolve from the canonical repo (../teaching-content);
+# 'course/...' items are course-owned files in this repo's course/ dir
+# (the namesakes: Introduction, Notation, Data Dictionary anchor).
+# After ANY canonical change: push canonical, then `make pin` here —
+# CI builds at content_sha, not canonical HEAD (see shell/CLAUDE.md).
+
+content_repo: ../teaching-content
+content_sha: d29fe2b5352a1abdde15cbfd36e4d2ed3f0d8215
+data_dictionary: "course/discussions/0.X.1. Data Dictionary.md"
+
+chapters:
+  - title: Introduction
+    items:
+      - "course/discussions/0. Introduction.md"
+      - "course/discussions/0. Notation.md"
+    appendix:
+      items:
+        - "course/discussions/0.X.1. Data Dictionary.md"
+
+# Example chapter — canonical items plus optional groups (appendix,
+# exercises, solutions, case_studies). Copy, uncomment, edit.
+#  - title: Rate Curves
+#    items:
+#      - "discussions/The Spot Discount Curve.ipynb"
+#      - "discussions/Forward Rates.ipynb"
+#    appendix:
+#      items:
+#        - "ta_reviews/TA Review - Rate Curves.ipynb"
+#    exercises:
+#      items:
+#        - "exercises/Estimating the Spot Curve.ipynb"
+#    solutions:
+#      items:
+#        - "solutions/Estimating the Spot Curve Solution.ipynb"
+
+# Course-branded slide decks (optional) — built by `make slides` from
+# canonical build_slides/<deck>.tex + this repo's branding.tex.
+#slides:
+#  branding: branding.tex
+#  decks:
+#    - "Slides - STIR Futures"
+
+# Per-course data flavor mapping (optional) — serve a different canonical
+# file under the name this course's notebooks reference.
+#data_aliases:
+#  spx_returns_weekly.xlsx: spx_returns_weekly_2026-03-31.xlsx

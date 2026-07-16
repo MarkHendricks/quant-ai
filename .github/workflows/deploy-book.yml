@@ -1,0 +1,68 @@
+name: Deploy Jupyter Book (thin shell)
+
+# MASTER COPY: teaching-content/shell/deploy-book.yml — keep shells
+# byte-identical (check_shell.py enforces). Builds the book from the
+# canonical content repo, checked out as a sibling at the SHA pinned in
+# content.yml. Auth: per-repo read-only deploy key on teaching-content,
+# stored as the TEACHING_CONTENT_DEPLOY_KEY Actions secret.
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out course repo
+      uses: actions/checkout@v6
+      with:
+        path: book
+
+    - name: Read pinned canonical SHA
+      id: pin
+      run: |
+        sha=$(awk '/^content_sha:/ {print $2}' book/content.yml)
+        if [ -z "$sha" ]; then echo "no content_sha in content.yml" >&2; exit 1; fi
+        echo "sha=$sha" >> "$GITHUB_OUTPUT"
+        echo "pinned canonical SHA: $sha"
+
+    - name: Check out teaching-content at pinned SHA
+      uses: actions/checkout@v6
+      with:
+        repository: MarkHendricks/teaching-content
+        ref: ${{ steps.pin.outputs.sha }}
+        ssh-key: ${{ secrets.TEACHING_CONTENT_DEPLOY_KEY }}
+        path: teaching-content
+
+    - name: Bootstrap locked book toolchain
+      run: make -C book bootstrap-book
+
+    - name: Shell conformance check
+      run: make -C book check
+
+    - name: Assemble and build
+      run: make -C book build
+
+    - name: Setup Pages
+      uses: actions/configure-pages@v5
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: 'book/docs/_build/html'
+
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4

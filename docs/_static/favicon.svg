@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- placeholder favicon — replace with the course favicon -->
+  <rect x="1" y="1" width="30" height="30" rx="6" fill="#12312b"/>
+  <path d="M8 24 V8 l8 10 8-10 v16" fill="none" stroke="#29b9c8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
