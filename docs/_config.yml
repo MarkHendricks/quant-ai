@@ -28,6 +28,20 @@ sphinx:
     nb_remove_code_source: false
     nb_code_prompt_show: Show code
     nb_code_prompt_hide: Hide code
+    # Theme options set here (not top-level) so they actually bind under the
+    # locked jupyter-book: the download/repository lockdown depends on it.
+    html_theme_options:
+      collapse_navigation: false
+      show_navbar_depth: 4
+      use_edit_page_button: false
+      repository_url: https://github.com/MarkHendricks/quant-ai
+      path_to_docs: docs/
+      show_toc_level: 4
+      navigation_depth: 4
+      toc_title: Contents
+      use_repository_button: false
+      use_issues_button: false
+      use_download_button: false
 html_theme: pydata_sphinx_theme
 html_static_path:
 - _static
@@ -36,20 +50,9 @@ html_css_files:
 - custom.css
 html_js_files:
 - build-stamp.js
-html_theme_options:
-  collapse_navigation: false
-  show_navbar_depth: 4
-  use_edit_page_button: true
-  repository_url: https://github.com/MarkHendricks/quant-ai
-  path_to_docs: docs/
-  author: Mark Hendricks
-  show_toc_level: 4
-  navigation_depth: 4
-  toc_title: Contents
-  show_toc: true
-  toc_show_sections: true
-  toc_show_subtoc: true
-  home_page_in_navbar: true
-  use_repository_button: true
-  use_issues_button: false
-  use_download_button: true
+- interactive-features.js
+# Reader-facing distribution posture: the site is the deliverable; no
+# repository/edit/download surfaces (assembled content is not in this repo).
+# Theme options live under sphinx.config.html_theme_options above.
+html_copy_source: false
+html_show_sourcelink: false

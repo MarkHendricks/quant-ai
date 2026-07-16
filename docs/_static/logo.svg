@@ -1,6 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
-  <!-- placeholder logo — replace with the course logo -->
-  <rect x="2" y="6" width="48" height="48" rx="8" fill="#12312b"/>
-  <path d="M12 42 V18 l8 12 8-12 v24" fill="none" stroke="#29b9c8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="60" y="38" font-family="Georgia, serif" font-size="20" fill="#12312b">Course Logo</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="56" viewBox="0 0 220 56">
+  <rect x="2" y="6" width="44" height="44" rx="8" fill="#1f4e79"/>
+  <text x="24" y="37" font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+        font-size="20" font-weight="600" fill="#ffffff" text-anchor="middle">AI</text>
+  <text x="56" y="28" font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+        font-size="17" font-weight="600" fill="#14181e">AI Models</text>
+  <text x="56" y="46" font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+        font-size="13" font-weight="400" fill="#5a5f66">quant finance, module by module</text>
 </svg>

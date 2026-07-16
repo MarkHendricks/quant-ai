@@ -1,47 +1,50 @@
 # Course content manifest — quant-ai
 # Items resolve from the canonical repo (../teaching-content);
-# 'course/...' items are course-owned files in this repo's course/ dir
-# (the namesakes: Introduction, Notation, Data Dictionary anchor).
+# 'course/...' items are course-owned files in this repo's course/ dir.
 # After ANY canonical change: push canonical, then `make pin` here —
 # CI builds at content_sha, not canonical HEAD (see shell/CLAUDE.md).
 
 content_repo: ../teaching-content
-content_sha: d29fe2b5352a1abdde15cbfd36e4d2ed3f0d8215
-data_dictionary: "course/discussions/0.X.1. Data Dictionary.md"
+content_sha: ca322c524e3e4fc924e8d02b7667938690a53a1a
 
 chapters:
-  - title: Introduction
+  - title: Generative Scenario Analysis
     items:
-      - "course/discussions/0. Introduction.md"
-      - "course/discussions/0. Notation.md"
-    appendix:
-      items:
-        - "course/discussions/0.X.1. Data Dictionary.md"
+      - "discussions/quant_ai/Generative Models and Scenario Analysis.md"
+      - "discussions/quant_ai/The Research Record.md"
+      - "discussions/quant_ai/Scenario Engines Under Test.md"
+      - "discussions/quant_ai/Conclusion.md"
 
-# Example chapter — canonical items plus optional groups (appendix,
-# exercises, solutions, case_studies). Copy, uncomment, edit.
-#  - title: Rate Curves
-#    items:
-#      - "discussions/The Spot Discount Curve.ipynb"
-#      - "discussions/Forward Rates.ipynb"
-#    appendix:
-#      items:
-#        - "ta_reviews/TA Review - Rate Curves.ipynb"
-#    exercises:
-#      items:
-#        - "exercises/Estimating the Spot Curve.ipynb"
-#    solutions:
-#      items:
-#        - "solutions/Estimating the Spot Curve Solution.ipynb"
+  - title: Demos
+    items:
+      - "discussions/quant_ai/Demos.md"
+      - "discussions/quant_ai/The Guessing Game.md"
+      - "discussions/quant_ai/What a Generative Model Is.ipynb"
+      - "discussions/quant_ai/Generative Models Outside Finance.md"
+      - "discussions/quant_ai/The Market Object.ipynb"
+      - "discussions/quant_ai/The Constraint Gate.ipynb"
+      - "discussions/quant_ai/VAE Surface Scenarios.ipynb"
+      - "discussions/quant_ai/GAN Hedging Scenarios.ipynb"
+      - "discussions/quant_ai/Diffusion Surface Forecasts.ipynb"
+      - "discussions/quant_ai/Synthetic Training Data.ipynb"
+      - "discussions/quant_ai/The Families, Compared.ipynb"
+      - "discussions/quant_ai/The Conditional Experiment.ipynb"
+      - "discussions/quant_ai/The Multi-Day Cut.ipynb"
+      - "discussions/quant_ai/The Hedge Book.ipynb"
+      - "discussions/quant_ai/The Field.ipynb"
 
-# Course-branded slide decks (optional) — built by `make slides` from
-# canonical build_slides/<deck>.tex + this repo's branding.tex.
-#slides:
-#  branding: branding.tex
-#  decks:
-#    - "Slides - STIR Futures"
-
-# Per-course data flavor mapping (optional) — serve a different canonical
-# file under the name this course's notebooks reference.
-#data_aliases:
-#  spx_returns_weekly.xlsx: spx_returns_weekly_2026-03-31.xlsx
+  - title: Featured Research
+    items:
+      - "discussions/quant_ai/Featured Research.md"
+      - "discussions/quant_ai/research/VolGAN.md"
+      - "discussions/quant_ai/research/Data-Driven Hedging.md"
+      - "discussions/quant_ai/research/Diffusion IV Forecasting.md"
+      - "discussions/quant_ai/research/Tail-GAN.md"
+      - "discussions/quant_ai/research/Generative Models for VaR.md"
+      - "discussions/quant_ai/research/Neural-SDE Market Models.md"
+      - "discussions/quant_ai/research/Diffusion Factor Models.md"
+      - "discussions/quant_ai/research/The Koshiyama Null.md"
+      - "discussions/quant_ai/research/GenCast Evaluation Pattern.md"
+      - "discussions/quant_ai/research/Scenario-Generator Validation.md"
+      - "discussions/quant_ai/research/Arbitrage-Free SVI.md"
+      - "discussions/quant_ai/research/Multivariate Proper Scoring.md"

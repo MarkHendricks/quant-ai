@@ -4,12 +4,12 @@
  * see the master sheet header for how to pick the dark-mode tints. */
 
 :root {
-  --theme-color-primary: #12312b;    /* dark saturated brand color */
-  --theme-color-accent: #29b9c8;     /* warm/luminous accent */
-  --theme-color-secondary: #e7f3f1;  /* pale wash (hover/current bg) */
-  --theme-color-dark: #0b201c;       /* darker primary (hover states) */
-  --theme-color-accent-fill: #29b9c8;  /* accent as solid fill: solid fills, never dark-remapped */
-  --theme-dark-primary: #7ecab8;     /* dark-mode tint of primary */
-  --theme-dark-accent: #6fd3de;      /* dark-mode tint of accent */
-  --theme-dark-secondary: #1e2b28;   /* dark-mode wash (dark surface) */
+  --theme-color-primary: #1f4e79;      /* navy — the model / the claim */
+  --theme-color-accent: #3e74ab;       /* lighter navy — h2, hovers (headers stay navy family) */
+  --theme-color-secondary: #eef2f6;    /* light navy-grey wash */
+  --theme-color-dark: #003d82;         /* darker navy (hover states) */
+  --theme-color-accent-fill: #c1121f;  /* crimson — solid fills only (buttons) */
+  --theme-dark-primary: #8fb8e8;       /* dark-mode tint of navy */
+  --theme-dark-accent: #93c5fd;        /* dark-mode tint of the light navy */
+  --theme-dark-secondary: #1d2634;     /* dark-mode wash */
 }
