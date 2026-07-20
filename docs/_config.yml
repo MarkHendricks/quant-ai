@@ -28,6 +28,8 @@ sphinx:
     nb_remove_code_source: false
     nb_code_prompt_show: Show code
     nb_code_prompt_hide: Hide code
+    html_copy_source: false
+    html_show_sourcelink: false
     # Theme options set here (not top-level) so they actually bind under the
     # locked jupyter-book: the download/repository lockdown depends on it.
     html_theme_options:
@@ -54,5 +56,3 @@ html_js_files:
 # Reader-facing distribution posture: the site is the deliverable; no
 # repository/edit/download surfaces (assembled content is not in this repo).
 # Theme options live under sphinx.config.html_theme_options above.
-html_copy_source: false
-html_show_sourcelink: false
