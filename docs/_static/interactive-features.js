@@ -50,9 +50,12 @@ document.addEventListener('DOMContentLoaded', function() {
     globalToggle.className = 'global-code-toggle';
     globalToggle.innerHTML = '📝 Show All Code';
     globalToggle.title = 'Toggle all code cells';
+    // On narrow screens the fixed header bar paints over top:20px, hiding the
+    // button; drop it below the header there.
+    const narrow = window.matchMedia('(max-width: 768px)').matches;
     globalToggle.style.cssText = `
         position: fixed;
-        top: 20px;
+        top: ${narrow ? '64px' : '20px'};
         right: 20px;
         z-index: 1000;
         background-color: #0057b7;
