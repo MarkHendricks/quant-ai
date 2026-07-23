@@ -32,7 +32,7 @@ What the published evidence supports, where it is narrow, and where familiar cla
 Our experiment on ES and TY volatility surfaces, from conditioning and constraint gates to tail coverage and hedge outcomes.
 :::
 
-:::{grid-item-card} Conclusion
+:::{grid-item-card} Failure Modes and Next Tests
 :link: discussions/quant_ai/Conclusion.html
 
 Why the failures happen, which development lanes are live, and the next round of tests, ours and the field's.
@@ -41,7 +41,7 @@ Why the failures happen, which development lanes are live, and the next round of
 :::{grid-item-card} Demos
 :link: discussions/quant_ai/Demos.html
 
-The detailed builds: fourteen executed notebooks, from the guessing game to the field map.
+The detailed builds: fourteen demos, including twelve executed notebooks, from the guessing game to the field map.
 :::
 
 :::{grid-item-card} Featured Research

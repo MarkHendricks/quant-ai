@@ -44,19 +44,23 @@ document.addEventListener('DOMContentLoaded', function() {
         codeInput.style.display = 'none';
     });
     
-    // Add global toggle for all code cells
+    // Add a global toggle only on pages that contain code.
+    if (codeInputs.length === 0) {
+        return;
+    }
+
     const body = document.body;
     const globalToggle = document.createElement('button');
     globalToggle.className = 'global-code-toggle';
     globalToggle.innerHTML = '📝 Show All Code';
     globalToggle.title = 'Toggle all code cells';
-    // On narrow screens the fixed header bar paints over top:20px, hiding the
-    // button; drop it below the header there.
     const narrow = window.matchMedia('(max-width: 768px)').matches;
     globalToggle.style.cssText = `
-        position: fixed;
-        top: ${narrow ? '64px' : '20px'};
-        right: 20px;
+        position: ${narrow ? 'relative' : 'fixed'};
+        ${narrow ? '' : 'top: 20px; right: 20px;'}
+        display: block;
+        width: max-content;
+        margin: ${narrow ? '0 0 1rem auto' : '0'};
         z-index: 1000;
         background-color: #0057b7;
         color: white;
@@ -96,5 +100,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
     
-    body.appendChild(globalToggle);
-}); 
+    if (narrow) {
+        const heading = document.querySelector('.bd-article > section > h1');
+        if (heading) {
+            heading.insertAdjacentElement('afterend', globalToggle);
+        } else {
+            body.appendChild(globalToggle);
+        }
+    } else {
+        body.appendChild(globalToggle);
+    }
+});
