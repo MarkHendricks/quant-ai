@@ -5,7 +5,7 @@
 # CI builds at content_sha, not canonical HEAD (see shell/CLAUDE.md).
 
 content_repo: ../teaching-content
-content_sha: dd74af10e8b9702a04242aea6666182a9705ba28
+content_sha: 4489bd7637ddec0d6d1dcca0123113b0047d7079
 
 chapters:
   - title: Generative Scenario Analysis
@@ -13,7 +13,7 @@ chapters:
       - "discussions/quant_ai/Generative Models and Scenario Analysis.md"
       - "discussions/quant_ai/The Research Record.md"
       - "discussions/quant_ai/Scenario Engines Under Test.md"
-      - "discussions/quant_ai/Conclusion.md"
+      - "discussions/quant_ai/Failure Modes and Next Tests.md"
 
   - title: Demos
     items:

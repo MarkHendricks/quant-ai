@@ -33,7 +33,7 @@ Our experiment on ES and TY volatility surfaces, from conditioning and constrain
 :::
 
 :::{grid-item-card} Failure Modes and Next Tests
-:link: discussions/quant_ai/Conclusion.html
+:link: discussions/quant_ai/Failure%20Modes%20and%20Next%20Tests.html
 
 Why the failures happen, which development lanes are live, and the next round of tests, ours and the field's.
 :::
