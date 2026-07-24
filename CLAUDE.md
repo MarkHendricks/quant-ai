@@ -8,12 +8,15 @@
 
 ## quant-ai specifics
 
-- The sidebar TOC is post-processed: `scripts/restructure_toc.py` (a `build`
-  prerequisite) folds the assembler's flat chapters into one part per module
-  with collapsible Demos and Featured Research sections. To add a chapter,
-  add its item in `content.yml` BEFORE the Demos landing item; it becomes a
-  top-level chapter automatically. Demos/research pages go after their
-  landing item and become collapsed sections.
+- One `content.yml` chapter block per MODULE (the M5 block is the model).
+  The sidebar TOC is post-processed: `scripts/restructure_toc.py` (a `build`
+  prerequisite) turns each block into a part whose Demos and Featured
+  Research chapters collapse their pages as sections, keyed on the first
+  items whose basenames start with "Demos" and "Featured Research". To add a
+  chapter, put its item BEFORE the module's Demos landing; demo/research
+  pages go after their landing item. A new module = a new chapter block with
+  its own "Demos ..."/"Featured Research ..." landing pages (basenames must
+  start with those words); a block without landings renders flat.
 - Local builds assemble from the ../teaching-content WORKING TREE, which may
   be stale or on another session's branch. To build at the pin:
   `make build CONTENT=<worktree-at-pinned-sha>`. CI always builds at the pin.

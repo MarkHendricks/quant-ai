@@ -14,9 +14,6 @@ chapters:
       - "discussions/quant_ai/The Research Record.md"
       - "discussions/quant_ai/Scenario Engines Under Test.md"
       - "discussions/quant_ai/Failure Modes and Next Tests.md"
-
-  - title: Demos
-    items:
       - "discussions/quant_ai/Demos.md"
       - "discussions/quant_ai/The Guessing Game.md"
       - "discussions/quant_ai/What a Generative Model Is.ipynb"
@@ -32,9 +29,6 @@ chapters:
       - "discussions/quant_ai/The Multi-Day Cut.ipynb"
       - "discussions/quant_ai/The Hedge Book.ipynb"
       - "discussions/quant_ai/The Field.ipynb"
-
-  - title: Featured Research
-    items:
       - "discussions/quant_ai/Featured Research.md"
       - "discussions/quant_ai/research/VolGAN.md"
       - "discussions/quant_ai/research/Data-Driven Hedging.md"
