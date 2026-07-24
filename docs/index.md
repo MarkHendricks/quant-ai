@@ -5,8 +5,6 @@ author: "Mark Hendricks"
 
 # Quant AI
 
-**Generative models in quant finance: what they are, what they buy you, and how to evaluate them.**
-
 <svg viewBox="0 0 960 170" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Book map: Core Concepts, Demos, Frontier Research" style="max-width: 820px; width: 100%; display: block; margin: 2.5rem auto;">
   <style>
     .cell { fill: rgba(107,147,201,0.07); stroke: #6b93c9; stroke-width: 1.5; }
@@ -32,9 +30,6 @@ author: "Mark Hendricks"
   </a>
 </svg>
 
----
-
-**Author:** Mark Hendricks
-**Email:** hendricks@uchicago.edu
-
----
+<div class="course-action-row" style="display: flex; justify-content: center; margin: 0 auto 2rem;">
+<a class="course-button" href="discussions/quant_ai/Generative%20Models%20and%20Scenario%20Analysis.html">Start the module →</a>
+</div>
