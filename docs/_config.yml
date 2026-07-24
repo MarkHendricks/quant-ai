@@ -34,7 +34,7 @@ sphinx:
     # locked jupyter-book: the download/repository lockdown depends on it.
     html_theme_options:
       collapse_navigation: false
-      show_navbar_depth: 4
+      show_navbar_depth: 1
       use_edit_page_button: false
       repository_url: https://github.com/MarkHendricks/quant-ai
       path_to_docs: docs/
