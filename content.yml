@@ -5,7 +5,7 @@
 # CI builds at content_sha, not canonical HEAD (see shell/CLAUDE.md).
 
 content_repo: ../teaching-content
-content_sha: d667fc8b61839dd32a1219c57da0452ee4eae222
+content_sha: 26f703141fe39eb0aef209d4927ee5f0bf523ee4
 
 chapters:
   - title: Generative Scenario Analysis
@@ -48,6 +48,7 @@ chapters:
       - "discussions/quant_ai/The Research Record - Forecasting.md"
       - "discussions/quant_ai/Forecasters Under Test.md"
       - "discussions/quant_ai/Candidate Mechanisms for the Gradient.md"
+      - "discussions/quant_ai/What the Evidence Supports Doing.md"
       - "discussions/quant_ai/Demos - Forecasting.md"
       - "discussions/quant_ai/The Forecast Guessing Game.ipynb"
       - "discussions/quant_ai/Context to Fan Charts.ipynb"
