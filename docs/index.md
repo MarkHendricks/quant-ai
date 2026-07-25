@@ -17,4 +17,10 @@ author: "Mark Hendricks"
 <figcaption style="text-align: center; font-size: 1.25rem; font-weight: 600; color: #5b84b8; padding-top: 0.7rem;">Generative Scenario Analysis</figcaption>
 </figure>
 </a>
+<a href="discussions/quant_ai/Foundation%20Models%20for%20Forecasting.html" style="text-decoration: none; max-width: 640px; flex: 1 1 420px;">
+<figure style="margin: 0; border: 1.5px solid #6b93c9; border-radius: 14px; padding: 14px 14px 10px;">
+<img src="_static/landing_hero_m3.png" alt="A realized volatility path inside a pretrained model's forecast band, breaking out of the band entirely at one episode" style="width: 100%; border-radius: 8px; display: block;"/>
+<figcaption style="text-align: center; font-size: 1.25rem; font-weight: 600; color: #5b84b8; padding-top: 0.7rem;">Zero-Shot Forecasting</figcaption>
+</figure>
+</a>
 </div>

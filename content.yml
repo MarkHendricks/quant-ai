@@ -42,7 +42,7 @@ chapters:
       - "discussions/quant_ai/research/Scenario-Generator Validation.md"
       - "discussions/quant_ai/research/Arbitrage-Free SVI.md"
       - "discussions/quant_ai/research/Multivariate Proper Scoring.md"
-  - title: Foundation Models for Forecasting
+  - title: Zero-Shot Forecasting
     items:
       - "discussions/quant_ai/Foundation Models for Forecasting.md"
       - "discussions/quant_ai/The Research Record - Forecasting.md"
