@@ -5,7 +5,7 @@
 # CI builds at content_sha, not canonical HEAD (see shell/CLAUDE.md).
 
 content_repo: ../teaching-content
-content_sha: b8ad66da8ee2c8e0d796a2e4f45a1b361baa07c3
+content_sha: 9b75f43ae615d335d41b25a283a3914b67eb4366
 
 chapters:
   - title: Generative Scenario Analysis
@@ -42,3 +42,29 @@ chapters:
       - "discussions/quant_ai/research/Scenario-Generator Validation.md"
       - "discussions/quant_ai/research/Arbitrage-Free SVI.md"
       - "discussions/quant_ai/research/Multivariate Proper Scoring.md"
+  - title: Foundation Models for Forecasting
+    items:
+      - "discussions/quant_ai/Foundation Models for Forecasting.md"
+      - "discussions/quant_ai/The Research Record - Forecasting.md"
+      - "discussions/quant_ai/Forecasters Under Test.md"
+      - "discussions/quant_ai/Candidate Mechanisms for the Gradient.md"
+      - "discussions/quant_ai/Demos - Forecasting.md"
+      - "discussions/quant_ai/The Forecast Guessing Game.ipynb"
+      - "discussions/quant_ai/Context to Fan Charts.ipynb"
+      - "discussions/quant_ai/The Forecast-Object Ladder.ipynb"
+      - "discussions/quant_ai/The Cross-Asset Panel.ipynb"
+      - "discussions/quant_ai/Calibration.ipynb"
+      - "discussions/quant_ai/The Basket.ipynb"
+      - "discussions/quant_ai/Featured Research - Forecasting.md"
+      - "discussions/quant_ai/research/Chronos.md"
+      - "discussions/quant_ai/research/Pretrained TSFMs for Return Forecasting.md"
+      - "discussions/quant_ai/research/How Good Can Linear Models Be.md"
+      - "discussions/quant_ai/research/Revisiting TSFMs in Finance.md"
+      - "discussions/quant_ai/research/Information Leakage in TSFM Evaluation.md"
+      - "discussions/quant_ai/research/The TIME Benchmark.md"
+      - "discussions/quant_ai/research/Kronos.md"
+      - "discussions/quant_ai/research/DELPHYNE.md"
+      - "discussions/quant_ai/research/TSFMs vs Volatility Benchmarks.md"
+      - "discussions/quant_ai/research/TimesFM on Realized Volatility.md"
+      - "discussions/quant_ai/research/qlikeHAR.md"
+      - "discussions/quant_ai/research/Data-Driven Duration Management.md"
