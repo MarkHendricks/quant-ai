@@ -5,7 +5,7 @@
 # CI builds at content_sha, not canonical HEAD (see shell/CLAUDE.md).
 
 content_repo: ../teaching-content
-content_sha: 507d0f33b2db902978f14c998c9544e24a38b23b
+content_sha: 4442af15ff620ffb39e0319a5d3506ab10593666
 
 chapters:
   - title: Generative Scenario Analysis
