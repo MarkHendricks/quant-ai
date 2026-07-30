@@ -55,6 +55,9 @@ jobs:
     - name: Assemble and build
       run: make -C book build
 
+    - name: Check outward artifacts
+      run: make -C book release-check
+
     - name: Setup Pages
       uses: actions/configure-pages@v5
 
