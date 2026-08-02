@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Post-assemble TOC restructure for quant-ai.
 
-The shared assembler emits every manifest item as a flat chapter. This book
-wants each module (one manifest chapter block = one generated part) to render
-as: part caption, top-level chapters, then collapsible Demos and Featured
-Research chapters holding their pages as sections.
+The shared assembler emits every manifest item as a flat chapter. The
+generative-scenarios part keeps collapsible Demos and Featured Research
+chapters. The forecasting part nests its paper index and twelve paper notes
+under The Research Record, then ends with Demos and its notebooks.
 
 Per part, the split is inferred from landing pages by basename: the first
 file whose basename starts with "Demos" starts the demo sections; the first
@@ -37,8 +37,64 @@ def basename(f):
     return f.rsplit("/", 1)[-1]
 
 
+def restructure_forecasting(part):
+    files = part["files"]
+    names = [basename(f) for f in files]
+    markers = {
+        "record": "The Research Record - Forecasting.md",
+        "papers": "Featured Research - Forecasting.md",
+        "guidance": "What the Evidence Supports Doing.md",
+        "demos": "Demos - Forecasting.md",
+    }
+    try:
+        record_i, papers_i, guidance_i, demos_i = (
+            names.index(markers[key])
+            for key in ("record", "papers", "guidance", "demos")
+        )
+    except ValueError as exc:
+        sys.exit(f"restructure_toc: missing forecasting marker: {exc}")
+    if not record_i < papers_i < guidance_i < demos_i:
+        sys.exit("restructure_toc: forecasting markers are out of order")
+
+    mains = files[:record_i]
+    papers = files[papers_i:guidance_i]
+    after_record = files[guidance_i:demos_i]
+    demos = files[demos_i + 1:]
+    if not (
+        len(mains) == 7
+        and len(papers) == 13
+        and len(after_record) == 2
+        and len(demos) == 6
+    ):
+        sys.exit(
+            "restructure_toc: unexpected forecasting route counts "
+            f"{len(mains)}/{len(papers)}/{len(after_record)}/{len(demos)}"
+        )
+
+    L = [f"- caption: {part['caption']}", "  chapters:"]
+    for f in mains:
+        L.append(f'  - file: "{f}"')
+    L += [f'  - file: "{files[record_i]}"', "    sections:"]
+    for i, f in enumerate(papers):
+        L.append(f'    - file: "{f}"')
+        if i == 0:
+            L.append('      title: "Paper Index"')
+    for f in after_record:
+        L.append(f'  - file: "{f}"')
+    L += [f'  - file: "{files[demos_i]}"', "    sections:"]
+    for f in demos:
+        L.append(f'    - file: "{f}"')
+    return L, (
+        f"{part['caption']}: {len(mains)} experiment chapters, "
+        f"{len(papers)} research sections, {len(after_record)} closing chapters, "
+        f"{len(demos)} demo sections"
+    )
+
+
 def restructure(part):
     files = part["files"]
+    if "The Research Record - Forecasting.md" in [basename(f) for f in files]:
+        return restructure_forecasting(part)
     demos_i = next((i for i, f in enumerate(files)
                     if basename(f).startswith("Demos")), None)
     research_i = next((i for i, f in enumerate(files)
