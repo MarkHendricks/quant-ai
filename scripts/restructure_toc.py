@@ -41,10 +41,10 @@ def restructure_forecasting(part):
     files = part["files"]
     names = [basename(f) for f in files]
     markers = {
-        "record": "The Research Record - Forecasting.md",
-        "papers": "Featured Research - Forecasting.md",
-        "guidance": "What the Evidence Supports Doing.md",
-        "demos": "Demos - Forecasting.md",
+        "record": "The Research Record - Forecasting",
+        "papers": "Featured Research - Forecasting",
+        "guidance": "What the Evidence Supports Doing",
+        "demos": "Demos - Forecasting",
     }
     try:
         record_i, papers_i, guidance_i, demos_i = (
@@ -93,7 +93,7 @@ def restructure_forecasting(part):
 
 def restructure(part):
     files = part["files"]
-    if "The Research Record - Forecasting.md" in [basename(f) for f in files]:
+    if "The Research Record - Forecasting" in [basename(f) for f in files]:
         return restructure_forecasting(part)
     demos_i = next((i for i, f in enumerate(files)
                     if basename(f).startswith("Demos")), None)
