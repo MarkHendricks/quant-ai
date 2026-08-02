@@ -42,13 +42,18 @@ chapters:
       - "discussions/quant_ai/research/Scenario-Generator Validation.md"
       - "discussions/quant_ai/research/Arbitrage-Free SVI.md"
       - "discussions/quant_ai/research/Multivariate Proper Scoring.md"
-  - title: Zero-Shot Forecasting
+  - title: Foundation Models for Forecasting
     items:
       - "discussions/quant_ai/Foundation Models for Forecasting.md"
-      - "discussions/quant_ai/The Research Record - Forecasting.md"
       - "discussions/quant_ai/Forecasters Under Test.md"
+      - "discussions/quant_ai/The Research Record - Forecasting.md"
+      - "discussions/quant_ai/Covariates and Portfolio Volatility.md"
       - "discussions/quant_ai/Candidate Mechanisms for the Gradient.md"
+      - "discussions/quant_ai/Comparator Choice and Forecast Horizon.md"
+      - "discussions/quant_ai/Held-Out Adaptation.md"
+      - "discussions/quant_ai/Clock and Calendar Information.md"
       - "discussions/quant_ai/What the Evidence Supports Doing.md"
+      - "discussions/quant_ai/Inside the Checkpoints.md"
       - "discussions/quant_ai/Demos - Forecasting.md"
       - "discussions/quant_ai/The Forecast Guessing Game.ipynb"
       - "discussions/quant_ai/Context to Fan Charts.ipynb"
