@@ -16,6 +16,9 @@ permissions:
   pages: write
   id-token: write
 
+env:
+  JUPYTER_PLATFORM_DIRS: "1"
+
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -59,13 +62,13 @@ jobs:
       run: make -C book release-check
 
     - name: Setup Pages
-      uses: actions/configure-pages@v5
+      uses: actions/configure-pages@v6
 
     - name: Upload artifact
-      uses: actions/upload-pages-artifact@v3
+      uses: actions/upload-pages-artifact@v5
       with:
         path: 'book/docs/_build/html'
 
     - name: Deploy to GitHub Pages
       id: deployment
-      uses: actions/deploy-pages@v4
+      uses: actions/deploy-pages@v5
