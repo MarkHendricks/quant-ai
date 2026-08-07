@@ -1,6 +1,5 @@
 ---
 title: "Quant AI"
-author: "Mark Hendricks"
 ---
 
 <!-- The root page is the reviewed results landing, ported from the source
@@ -128,7 +127,7 @@ model:
 | What the models are, and how one turns a series into a forecast | [Background](discussions/quant_ai/Background.md) |
 | The same instruments on another target or cadence, and what might explain the split across markets | [Further Analysis](discussions/quant_ai/Further%20Analysis.md) |
 | The targets, frequencies and model families worth trying next | [Ongoing Work](discussions/quant_ai/Ongoing%20Work.md) |
-| The published research, read as one argument, then paper by paper | [Research](discussions/quant_ai/Research.md), then the [Research Appendix](discussions/quant_ai/Research%20Appendix.md) |
+| Selected research and the full paper index | [Research](discussions/quant_ai/Research.md), then the [Research Appendix](discussions/quant_ai/Research%20Appendix.md) |
 | The constructions behind the evidence, as runnable notebooks | [Technical Appendix](discussions/quant_ai/Technical%20Appendix.md) |
 
 ## Generative Scenario Analysis
@@ -155,8 +154,8 @@ they imply, the hedge they choose, and the five-day paths they generate.
 | Coverage counts after projection | Unchanged in all five episodes |
 | Draws beyond the realized 99th percentile | VAE 0.0%; history 1.0% |
 
-- The VAE is the cleanest generator by the structural measures and smooths out the upper tail.
-- One engine clearing the gates and the coverage count on the same draws would overturn this result. None of the eight does.
+- The VAE has the strongest structural measures in this comparison and smooths out the upper tail.
+- No engine clears both the structural gates and the coverage count on the same draws.
 
 [The projection repair](discussions/quant_ai/Investigation%201%20-%20One-Day%20Surfaces.md#the-projection-repair)
 
@@ -235,14 +234,15 @@ COVID band results, days of 15:
 | What a scenario engine is, what it generates here, and the checks a generated surface has to clear | [Background](discussions/quant_ai/Background%20-%20Scenarios.md) |
 | The engine roster behind the investigations, and why the failures happen | [Further Analysis](discussions/quant_ai/Further%20Analysis%20-%20Scenarios.md) |
 | The decisions, horizons and frequencies worth testing next | [Ongoing Work](discussions/quant_ai/Ongoing%20Work%20-%20Scenarios.md) |
-| The published research, read as one argument, then paper by paper | [Research](discussions/quant_ai/The%20Research%20Record.md), then the [Research Appendix](discussions/quant_ai/Research%20Appendix%20-%20Scenarios.md) |
+| Selected research and the full paper index | [Research](discussions/quant_ai/The%20Research%20Record.md), then the [Research Appendix](discussions/quant_ai/Research%20Appendix%20-%20Scenarios.md) |
 | The full definitions behind the compact statements the evidence pages carry | [Technical Appendix](discussions/quant_ai/Technical%20Appendix%20-%20Scenarios.md) |
 
 ---
 
 *Updated August 2026*
 
-**Author:** Mark Hendricks
-**Email:** hendricks@uchicago.edu
+Mark Hendricks
+
+[hendricks@uchicago.edu](mailto:hendricks@uchicago.edu)
 
 ---

@@ -8,9 +8,7 @@
     }
     .quant-text { font-size: 52px; font-weight: 700; letter-spacing: 0.5px; }
     .subtitle { font-size: 44px; font-weight: 300; letter-spacing: 6px; opacity: 0.95; }
-    .name-text { font-size: 15px; font-weight: 300; letter-spacing: 1.5px; opacity: 0.9; }
   </style>
   <text x="100" y="72" text-anchor="middle" class="logo-text quant-text">QUANT</text>
-  <text x="100" y="146" text-anchor="middle" class="logo-text subtitle">AI</text>
-  <text x="100" y="184" text-anchor="middle" class="logo-text name-text">Mark Hendricks</text>
+  <text x="100" y="160" text-anchor="middle" class="logo-text subtitle">AI</text>
 </svg>
