@@ -30,6 +30,12 @@ sphinx:
     suppress_warnings:
     - myst.header
     - pygments.lexer
+    # Register implicit targets for h1-h3 headings, matching the source book's
+    # own setting. Both modules link across pages into the exact section they
+    # name (a research page's study, an evidence page's result). Without this
+    # those 65 links resolve to the top of the target page and Sphinx reports
+    # "local id not found" for every one.
+    myst_heading_anchors: 3
     nb_remove_code_source: false
     nb_code_prompt_show: Show code
     nb_code_prompt_hide: Hide code
