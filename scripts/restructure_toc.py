@@ -43,7 +43,54 @@ def page(path, title=None, children=()):
 
 # Part caption -> the six groups, in reading order. Each group is a landing
 # page and its sections; a section may carry its own sections.
+#
+# The captions and their order mirror the source book's own _toc.yml, which is
+# the reviewed artifact and the authority for the deployed site. A caption here
+# has to match `content.yml`'s chapter title exactly — that is what the
+# assembler writes into the flat TOC and what this table is keyed on — and the
+# part order is set by the chapter block order there, not by this dict. The
+# hero tiles in docs/index.md open the two modules in the same order.
 STRUCTURE = {
+    "Time-Series Foundation Models": [
+        page(D + "Background", None, [
+            page(D + "Foundation Models for Forecasting"),
+            page(D + "How Time-Series Foundation Models Work"),
+        ]),
+        page(D + "Investigations", None, [
+            page(D + "Investigation 1 - Across Five Markets",
+                 "Investigation 1: Across Five Markets"),
+            page(D + "Comparator Choice and Forecast Horizon",
+                 "Investigation 2: Across Horizons and Benchmarks"),
+            page(D + "Held-Out Adaptation",
+                 "Investigation 3: With Local Adaptation"),
+            page(D + "Covariates and Portfolio Volatility",
+                 "Investigation 4: With Covariates"),
+            page(D + "Clock and Calendar Information",
+                 "Investigation 5: At Intraday Frequencies"),
+        ]),
+        page(D + "Further Analysis", None, [
+            page(D + "Across-Session Volatility"),
+            page(D + "The Weekly Five-Market Design"),
+            page(D + "What Might Explain the Cross-Market Results"),
+        ]),
+        page(D + "Ongoing Work"),
+        page(D + "Technical Appendix", None, [
+            page(D + "Context to Forecast Quantiles"),
+            page(D + "Forecast Targets and Baselines"),
+            page(D + "The Cross-Asset Panel"),
+            page(D + "Calibration"),
+            page(D + "The Basket"),
+        ]),
+        page(D + "Research", None, [
+            page(R + "Forecasting Realized Volatility at Scale"),
+            page(R + "Leakage and Lineage"),
+            page(R + "What the Benchmarks Measure"),
+            page(R + "Adaptation and Financial Specialization"),
+            page(R + "Calibration and Richer Information"),
+            page(R + "Two Controls from Outside the Panel"),
+            page(D + "Featured Research - Forecasting", "Paper Index"),
+        ]),
+    ],
     "Generative Scenario Analysis": [
         page(D + "Background - Scenarios", "Background", [
             page(D + "Generative Models and Scenario Analysis"),
@@ -88,46 +135,6 @@ STRUCTURE = {
             page(R + "Arbitrage-Free SVI"),
             page(R + "Multivariate Proper Scoring"),
             page(D + "Featured Research", "Paper Index"),
-        ]),
-    ],
-    "Foundation Models for Forecasting": [
-        page(D + "Background", None, [
-            page(D + "Foundation Models for Forecasting"),
-            page(D + "How Time-Series Foundation Models Work"),
-        ]),
-        page(D + "Investigations", None, [
-            page(D + "Investigation 1 - Across Five Markets",
-                 "Investigation 1: Across Five Markets"),
-            page(D + "Comparator Choice and Forecast Horizon",
-                 "Investigation 2: Across Horizons and Benchmarks"),
-            page(D + "Held-Out Adaptation",
-                 "Investigation 3: With Local Adaptation"),
-            page(D + "Covariates and Portfolio Volatility",
-                 "Investigation 4: With Covariates"),
-            page(D + "Clock and Calendar Information",
-                 "Investigation 5: At Intraday Frequencies"),
-        ]),
-        page(D + "Further Analysis", None, [
-            page(D + "Across-Session Volatility"),
-            page(D + "The Weekly Five-Market Design"),
-            page(D + "What Might Explain the Cross-Market Results"),
-        ]),
-        page(D + "Ongoing Work"),
-        page(D + "Technical Appendix", None, [
-            page(D + "Context to Forecast Quantiles"),
-            page(D + "Forecast Targets and Baselines"),
-            page(D + "The Cross-Asset Panel"),
-            page(D + "Calibration"),
-            page(D + "The Basket"),
-        ]),
-        page(D + "Research", None, [
-            page(R + "Forecasting Realized Volatility at Scale"),
-            page(R + "Leakage and Lineage"),
-            page(R + "What the Benchmarks Measure"),
-            page(R + "Adaptation and Financial Specialization"),
-            page(R + "Calibration and Richer Information"),
-            page(R + "Two Controls from Outside the Panel"),
-            page(D + "Featured Research - Forecasting", "Paper Index"),
         ]),
     ],
 }

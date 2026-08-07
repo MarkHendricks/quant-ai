@@ -12,4 +12,13 @@
   --theme-dark-primary: #8fb8e8;       /* dark-mode tint of navy */
   --theme-dark-accent: #93c5fd;        /* dark-mode tint of the light navy */
   --theme-dark-secondary: #1d2634;     /* dark-mode wash */
+
+  /* Landing part banner. Fixed in both color modes, like the logo: the navy
+   * field, white type, and the thin light-blue rule of the QUANT/AI mark.
+   * These are deliberately NOT the --theme-color-* variables, which theme.css
+   * remaps to light tints under html[data-theme="dark"]. Carried verbatim from
+   * the source book's own _static/custom.css; consumed by landing.css. */
+  --part-banner-bg: #1f4e79;
+  --part-banner-ink: #ffffff;
+  --part-banner-rule: #6b93c9;
 }

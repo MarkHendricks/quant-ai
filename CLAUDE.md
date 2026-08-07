@@ -20,6 +20,21 @@
   landing pages; when the 2026-08-06 route restructure retired the `Demos`
   pages the inference stopped matching and both parts would have rendered
   flat. Declaring the structure is what makes that failure loud.)
+- **The root page is a PORT, not an original.** `docs/index.md` is the source
+  book's reviewed results landing (`ai-models` `index.md`), byte for byte below
+  the H1 except that every route gains the canonical `quant_ai/` directory and
+  the two investigation stems land under their ruled labels. When the book's
+  landing changes, **re-port it** — do not hand-edit here, and do not author a
+  parallel summary, or the deployed landing and the reviewed landing drift
+  apart silently. Its navy part band and porch are styled by
+  `docs/_static/landing.css`, keyed to the section ids Sphinx generates from
+  the two H2 part titles; `custom.css` stays variables-only, which is what
+  `check_shell.py` expects.
+- Part order and part captions come from `content.yml`'s chapter blocks and
+  mirror the book's own part order. Three surfaces read them and must move
+  together: the chapter blocks, `STRUCTURE` in `scripts/restructure_toc.py`
+  (keyed on the caption), and the landing's two H2s plus the `landing.css`
+  selectors keyed on their generated ids.
 - **Staging noindex is ON.** Every built page carries
   `<meta name="robots" content="noindex, nofollow">` (M021: the deploy is a
   staging surface until the URL is shared). To let the book be indexed at

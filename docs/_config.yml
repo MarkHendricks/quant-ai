@@ -61,6 +61,10 @@ html_static_path:
 html_css_files:
 - theme.css
 - custom.css
+# The root results landing's part banner and porch, carried from the source
+# book. Kept out of custom.css, which stays variables-only by shell convention
+# (check_shell.py warns on any selector beyond :root there).
+- landing.css
 html_js_files:
 - build-stamp.js
 - interactive-features.js

@@ -10,11 +10,54 @@
 # explicit table rather than from this file's order — so this manifest selects
 # pages, and that script arranges them. The two must agree on the page set:
 # restructure_toc.py fails the build if they diverge in either direction.
+#
+# Part order and part captions mirror the source book's own _toc.yml, which is
+# the reviewed artifact and the authority for the deployed site. Both are read
+# from here: the chapter block order sets the part order, and each block's
+# `title` is the sidebar caption. Changing either means changing the matching
+# key in restructure_toc.py's STRUCTURE table and the hero tiles in
+# docs/index.md, which open the two modules in the same order.
 
 content_repo: ../teaching-content
 content_sha: 1f58ff37de8a431fa31d058d6d81329226fd965e
 
 chapters:
+  - title: Time-Series Foundation Models
+    items:
+      # Background
+      - "discussions/quant_ai/Background.md"
+      - "discussions/quant_ai/Foundation Models for Forecasting.md"
+      - "discussions/quant_ai/How Time-Series Foundation Models Work.md"
+      # Investigations
+      - "discussions/quant_ai/Investigations.md"
+      - "discussions/quant_ai/Investigation 1 - Across Five Markets.md"
+      - "discussions/quant_ai/Comparator Choice and Forecast Horizon.md"
+      - "discussions/quant_ai/Held-Out Adaptation.md"
+      - "discussions/quant_ai/Covariates and Portfolio Volatility.md"
+      - "discussions/quant_ai/Clock and Calendar Information.md"
+      # Further Analysis
+      - "discussions/quant_ai/Further Analysis.md"
+      - "discussions/quant_ai/Across-Session Volatility.md"
+      - "discussions/quant_ai/The Weekly Five-Market Design.md"
+      - "discussions/quant_ai/What Might Explain the Cross-Market Results.md"
+      # Ongoing Work
+      - "discussions/quant_ai/Ongoing Work.md"
+      # Technical Appendix
+      - "discussions/quant_ai/Technical Appendix.md"
+      - "discussions/quant_ai/Context to Forecast Quantiles.ipynb"
+      - "discussions/quant_ai/Forecast Targets and Baselines.ipynb"
+      - "discussions/quant_ai/The Cross-Asset Panel.ipynb"
+      - "discussions/quant_ai/Calibration.ipynb"
+      - "discussions/quant_ai/The Basket.ipynb"
+      # Research
+      - "discussions/quant_ai/Research.md"
+      - "discussions/quant_ai/research/Forecasting Realized Volatility at Scale.md"
+      - "discussions/quant_ai/research/Leakage and Lineage.md"
+      - "discussions/quant_ai/research/What the Benchmarks Measure.md"
+      - "discussions/quant_ai/research/Adaptation and Financial Specialization.md"
+      - "discussions/quant_ai/research/Calibration and Richer Information.md"
+      - "discussions/quant_ai/research/Two Controls from Outside the Panel.md"
+      - "discussions/quant_ai/Featured Research - Forecasting.md"
   - title: Generative Scenario Analysis
     items:
       # Background
@@ -58,39 +101,3 @@ chapters:
       - "discussions/quant_ai/research/Arbitrage-Free SVI.md"
       - "discussions/quant_ai/research/Multivariate Proper Scoring.md"
       - "discussions/quant_ai/Featured Research.md"
-  - title: Foundation Models for Forecasting
-    items:
-      # Background
-      - "discussions/quant_ai/Background.md"
-      - "discussions/quant_ai/Foundation Models for Forecasting.md"
-      - "discussions/quant_ai/How Time-Series Foundation Models Work.md"
-      # Investigations
-      - "discussions/quant_ai/Investigations.md"
-      - "discussions/quant_ai/Investigation 1 - Across Five Markets.md"
-      - "discussions/quant_ai/Comparator Choice and Forecast Horizon.md"
-      - "discussions/quant_ai/Held-Out Adaptation.md"
-      - "discussions/quant_ai/Covariates and Portfolio Volatility.md"
-      - "discussions/quant_ai/Clock and Calendar Information.md"
-      # Further Analysis
-      - "discussions/quant_ai/Further Analysis.md"
-      - "discussions/quant_ai/Across-Session Volatility.md"
-      - "discussions/quant_ai/The Weekly Five-Market Design.md"
-      - "discussions/quant_ai/What Might Explain the Cross-Market Results.md"
-      # Ongoing Work
-      - "discussions/quant_ai/Ongoing Work.md"
-      # Technical Appendix
-      - "discussions/quant_ai/Technical Appendix.md"
-      - "discussions/quant_ai/Context to Forecast Quantiles.ipynb"
-      - "discussions/quant_ai/Forecast Targets and Baselines.ipynb"
-      - "discussions/quant_ai/The Cross-Asset Panel.ipynb"
-      - "discussions/quant_ai/Calibration.ipynb"
-      - "discussions/quant_ai/The Basket.ipynb"
-      # Research
-      - "discussions/quant_ai/Research.md"
-      - "discussions/quant_ai/research/Forecasting Realized Volatility at Scale.md"
-      - "discussions/quant_ai/research/Leakage and Lineage.md"
-      - "discussions/quant_ai/research/What the Benchmarks Measure.md"
-      - "discussions/quant_ai/research/Adaptation and Financial Specialization.md"
-      - "discussions/quant_ai/research/Calibration and Richer Information.md"
-      - "discussions/quant_ai/research/Two Controls from Outside the Panel.md"
-      - "discussions/quant_ai/Featured Research - Forecasting.md"

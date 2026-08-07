@@ -1,0 +1,63 @@
+/* docs/_static/landing.css — the root results landing's part opener.
+ *
+ * Carried from the source book's _static/custom.css (ai-models b88d66af), which
+ * is where these rules were reviewed. They live in their own file here rather
+ * than in custom.css because this shell's custom.css is variables-only by
+ * convention and check_shell.py warns on any selector beyond :root; the brand
+ * variables these rules consume, including --part-banner-*, stay there.
+ *
+ * Scope: the root page only. Both selectors are keyed to the section ids Sphinx
+ * generates from the two H2 part titles in docs/index.md. Renaming a part title
+ * changes the id and these selectors have to follow it — the same coupling the
+ * book documents, and the reason the ids are verified against the built HTML
+ * rather than assumed.
+ */
+
+/* The banner is the part's own H2, restyled in place. The heading node, its
+ * generated slug id, its headerlink and its right-sidebar entry are untouched,
+ * so every anchor into a part still resolves. */
+section#time-series-foundation-models > h2,
+section#generative-scenario-analysis > h2 {
+  margin: 2.75rem 0 0;
+  padding: 1.05rem 1.4rem 0.85rem;
+  background-color: var(--part-banner-bg);
+  color: var(--part-banner-ink) !important;
+  border-radius: 3px 3px 0 0;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+/* The thin light rule under the title, inside the band, echoing the mark. */
+section#time-series-foundation-models > h2::after,
+section#generative-scenario-analysis > h2::after {
+  content: "";
+  display: block;
+  height: 2px;
+  margin-top: 0.8rem;
+  background-color: var(--part-banner-rule);
+  opacity: 0.85;
+}
+
+section#time-series-foundation-models > h2 .headerlink,
+section#generative-scenario-analysis > h2 .headerlink {
+  color: var(--part-banner-ink) !important;
+}
+
+/* The porch: the part's frame sentence and its route row, on the pale wash,
+ * flush under the band. --theme-color-secondary is the brand wash; theme.css
+ * remaps it to --theme-dark-secondary under html[data-theme="dark"], so the
+ * wash follows the mode while the band above it stays navy. */
+.part-porch {
+  margin: 0 0 2rem;
+  padding: 1rem 1.4rem 1.05rem;
+  background-color: var(--theme-color-secondary);
+  border-radius: 0 0 3px 3px;
+}
+.part-porch > p {
+  margin-bottom: 0.6rem;
+}
+.part-porch > p:last-child {
+  margin-bottom: 0;
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
