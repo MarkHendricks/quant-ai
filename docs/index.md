@@ -4,7 +4,7 @@ author: "Mark Hendricks"
 ---
 
 <!-- The root page is the reviewed results landing, ported from the source
-     book's index.md at ai-models b88d66af. It is that file byte for byte
+     book's index.md at ai-models f438f53b. It is that file byte for byte
      below the H1, except that every route gains the canonical quant_ai/
      directory and the two investigation stems land under their ruled
      labels (M026). Do not author a parallel summary here: re-port instead,
@@ -129,7 +129,7 @@ model:
 | What the models are, and how one turns a series into a forecast | [Background](discussions/quant_ai/Background.md) |
 | The same instruments on another target or cadence, and what might explain the split across markets | [Further Analysis](discussions/quant_ai/Further%20Analysis.md) |
 | The targets, frequencies and model families worth trying next | [Ongoing Work](discussions/quant_ai/Ongoing%20Work.md) |
-| The published research, paper by paper | [Paper Index](discussions/quant_ai/Featured%20Research%20-%20Forecasting.md), then [Research](discussions/quant_ai/Research.md) |
+| The published research, read as one argument, then paper by paper | [Research](discussions/quant_ai/Research.md), then the [Research Appendix](discussions/quant_ai/Research%20Appendix.md) |
 | The constructions behind the evidence, as runnable notebooks | [Technical Appendix](discussions/quant_ai/Technical%20Appendix.md) |
 
 ## Generative Scenario Analysis
@@ -163,7 +163,7 @@ the loss. Investigation 3 changes only the horizon.
 count unchanged, in all five episodes.
 
 - The projection moves 38% of GARCH's COVID draws and 82% of VolGAN's, and lifts both engines to a perfect calendar and smile-shape score.
-- The VAE clears every gate and puts 0.0% of its draws beyond the realized 99th percentile, against 1.0% in history. Valid surfaces with the tail smoothed out.
+- The VAE is the cleanest generator on the board by every structural measure and puts 0.0% of its draws beyond the realized 99th percentile, against 1.0% in history. Valid surfaces with the tail smoothed out.
 - What would overturn it: one engine clearing the gates and the coverage count on the same draws. None of the eight does.
 
 [The projection repair](discussions/quant_ai/Investigation%201%20-%20One-Day%20Surfaces.md#the-projection-repair)
@@ -219,7 +219,7 @@ draws implies **1.02**. The stationary block bootstrap implies **0.90**.
 | What a scenario engine is, what it generates here, and the checks a generated surface has to clear | [Background](discussions/quant_ai/Background%20-%20Scenarios.md) |
 | The engine roster behind the investigations, and why the failures happen | [Further Analysis](discussions/quant_ai/Further%20Analysis%20-%20Scenarios.md) |
 | The decisions, horizons and frequencies worth testing next | [Ongoing Work](discussions/quant_ai/Ongoing%20Work%20-%20Scenarios.md) |
-| The published research, paper by paper | [Paper Index](discussions/quant_ai/Featured%20Research.md), then [Research](discussions/quant_ai/The%20Research%20Record.md) |
+| The published research, read as one argument, then paper by paper | [Research](discussions/quant_ai/The%20Research%20Record.md), then the [Research Appendix](discussions/quant_ai/Research%20Appendix%20-%20Scenarios.md) |
 | The full definitions behind the compact statements the evidence pages carry | [Technical Appendix](discussions/quant_ai/Technical%20Appendix%20-%20Scenarios.md) |
 
 ---

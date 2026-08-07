@@ -25,7 +25,9 @@ sphinx:
     # shared, so every page carries meta robots noindex until share-time.
     # AT SHARE-TIME: comment out or delete the single line below, rebuild, and
     # the tag is gone. Rationale and verification: docs/_noindex.py.
-    _noindex: .
+    # FLIPPED OFF at share-time, 2026-08-07: the URL goes to Millennium with
+    # this deploy, so the book is indexable. Restore the line to re-stage.
+    # _noindex: .
   config:
     suppress_warnings:
     - myst.header

@@ -19,7 +19,7 @@
 # docs/index.md, which open the two modules in the same order.
 
 content_repo: ../teaching-content
-content_sha: bb69b850219a51d29e20363e3f600d5ced257915
+content_sha: 3df33327c3aebb51224524f3f4d4ebf91056b8e0
 
 chapters:
   - title: Time-Series Foundation Models
@@ -57,7 +57,7 @@ chapters:
       - "discussions/quant_ai/research/Adaptation and Financial Specialization.md"
       - "discussions/quant_ai/research/Calibration and Richer Information.md"
       - "discussions/quant_ai/research/Two Controls from Outside the Panel.md"
-      - "discussions/quant_ai/Featured Research - Forecasting.md"
+      - "discussions/quant_ai/Research Appendix.md"
   - title: Generative Scenario Analysis
     items:
       # Background
@@ -83,11 +83,12 @@ chapters:
       - "discussions/quant_ai/Ongoing Work - Scenarios.md"
       # Technical Appendix
       - "discussions/quant_ai/Technical Appendix - Scenarios.md"
-      - "discussions/quant_ai/Constraint Gates.md"
+      - "discussions/quant_ai/Constraint Tests.md"
       # Research
       - "discussions/quant_ai/The Research Record.md"
-      - "discussions/quant_ai/Synthetic Training Data.ipynb"
       - "discussions/quant_ai/The Field.ipynb"
+      - "discussions/quant_ai/Synthetic Training Data.ipynb"
+      - "discussions/quant_ai/Research Appendix - Scenarios.md"
       - "discussions/quant_ai/research/VolGAN.md"
       - "discussions/quant_ai/research/Data-Driven Hedging.md"
       - "discussions/quant_ai/research/Diffusion IV Forecasting.md"
@@ -100,4 +101,3 @@ chapters:
       - "discussions/quant_ai/research/Scenario-Generator Validation.md"
       - "discussions/quant_ai/research/Arbitrage-Free SVI.md"
       - "discussions/quant_ai/research/Multivariate Proper Scoring.md"
-      - "discussions/quant_ai/Featured Research.md"
