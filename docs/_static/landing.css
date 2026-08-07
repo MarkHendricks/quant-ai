@@ -61,3 +61,12 @@ section#generative-scenario-analysis > h2 .headerlink {
   font-size: 0.94rem;
   line-height: 1.6;
 }
+
+/* M030: the root serves the results landing; the shell title lives in the
+   chrome (tab, logo, sidebar), so the article H1 is hidden on this page only. */
+section#quant-ai > h1 { display: none; }
+
+/* In-page jump affordance between the two part sections (M030). */
+.part-jump { text-align: right; margin: 1.25rem 0 0.25rem; }
+.part-jump a { font-weight: 600; text-decoration: none; }
+.part-jump a:hover { text-decoration: underline; }

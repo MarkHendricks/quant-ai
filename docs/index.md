@@ -26,8 +26,7 @@ forecasts.
 [Background](discussions/quant_ai/Background.md) · [Investigations](discussions/quant_ai/Investigations.md) · [Further Analysis](discussions/quant_ai/Further%20Analysis.md) · [Research](discussions/quant_ai/Research.md)
 :::
 
-Every comparator is chosen before its evaluation window opens, and every
-outcome postdates the weights being tested.
+Every outcome postdates the released weights being tested.
 
 - Five experiments. Every one is zero-shot except Investigation 3.
 - The five forecast objects differ, so no two results are combined and there is no overall win rate.
@@ -40,6 +39,10 @@ outcome postdates the weights being tested.
 | [3. With Local Adaptation](discussions/quant_ai/Held-Out%20Adaptation.md) | Realized-volatility quantiles on futures excluded from fitting |
 | [4. With Covariates](discussions/quant_ai/Covariates%20and%20Portfolio%20Volatility.md) | Forward five-session volatility of a nine-sector basket, issued weekly |
 | [5. At Intraday Frequencies](discussions/quant_ai/Clock%20and%20Calendar%20Information.md) | Hourly futures and equity realized volatility, and a frozen event grid |
+
+:::{div} part-jump
+[Jump to Generative Scenario Analysis ↓](#generative-scenario-analysis)
+:::
 
 ### Finding 1. Zero-shot captures most of the classical gain
 
