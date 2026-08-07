@@ -4,7 +4,7 @@ author: "Mark Hendricks"
 ---
 
 <!-- The root page is the reviewed results landing, ported from the source
-     book's index.md at ai-models 77056956. It is that file byte for byte
+     book's index.md at ai-models 0a79afdb. It is that file byte for byte
      below the H1, except that every route gains the canonical quant_ai/
      directory and the two investigation stems land under their ruled
      labels (M026). Do not author a parallel summary here: re-port instead,
@@ -72,11 +72,9 @@ comparator's loss:
 | Pre-evaluation validation winner | 0.992 |
 | Ex-post hindsight oracle | 1.022 |
 
-- 2 of the 3 comparators are frozen before the evaluation window opens. The third is chosen after the results are known, so it bounds what any selection rule could have achieved rather than naming one anybody could have run.
-
 [Investigation 2](discussions/quant_ai/Comparator%20Choice%20and%20Forecast%20Horizon.md)
 
-### Finding 3. Adaptation gains are small and uneven
+### Finding 3. LoRA fine-tuning gains are small and uneven
 
 A rank-8 adapter against zero-shot, panel-average loss under isolated inference, each
 range across five seeds:
