@@ -21,6 +21,11 @@ sphinx:
   # add course-notation OVERRIDES only under config.mathjax3_config.tex.macros
   local_extensions:
     _mathjax_macros: .
+    # STAGING NOINDEX (M021). The book deploys to a public URL before it is
+    # shared, so every page carries meta robots noindex until share-time.
+    # AT SHARE-TIME: comment out or delete the single line below, rebuild, and
+    # the tag is gone. Rationale and verification: docs/_noindex.py.
+    _noindex: .
   config:
     suppress_warnings:
     - myst.header

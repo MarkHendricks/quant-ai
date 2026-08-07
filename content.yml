@@ -3,6 +3,13 @@
 # 'course/...' items are course-owned files in this repo's course/ dir.
 # After ANY canonical change: push canonical, then `make pin` here —
 # CI builds at content_sha, not canonical HEAD (see shell/CLAUDE.md).
+#
+# The items below are the full ported page set for both modules, listed in
+# reading order. The sidebar's six-group structure per part is applied after
+# assembly by scripts/restructure_toc.py, which reads its grouping from an
+# explicit table rather than from this file's order — so this manifest selects
+# pages, and that script arranges them. The two must agree on the page set:
+# restructure_toc.py fails the build if they diverge in either direction.
 
 content_repo: ../teaching-content
 content_sha: 1f58ff37de8a431fa31d058d6d81329226fd965e
@@ -10,26 +17,34 @@ content_sha: 1f58ff37de8a431fa31d058d6d81329226fd965e
 chapters:
   - title: Generative Scenario Analysis
     items:
+      # Background
+      - "discussions/quant_ai/Background - Scenarios.md"
       - "discussions/quant_ai/Generative Models and Scenario Analysis.md"
-      - "discussions/quant_ai/The Research Record.md"
-      - "discussions/quant_ai/Scenario Engines Under Test.md"
-      - "discussions/quant_ai/Failure Modes and Next Tests.md"
-      - "discussions/quant_ai/Demos.md"
-      - "discussions/quant_ai/The Guessing Game.md"
       - "discussions/quant_ai/What a Generative Model Is.ipynb"
-      - "discussions/quant_ai/Generative Models Outside Finance.md"
       - "discussions/quant_ai/The Market Object.ipynb"
-      - "discussions/quant_ai/The Constraint Gate.ipynb"
-      - "discussions/quant_ai/VAE Surface Scenarios.ipynb"
-      - "discussions/quant_ai/GAN Hedging Scenarios.ipynb"
-      - "discussions/quant_ai/Diffusion Surface Forecasts.ipynb"
-      - "discussions/quant_ai/Synthetic Training Data.ipynb"
-      - "discussions/quant_ai/The Families, Compared.ipynb"
+      # Investigations
+      - "discussions/quant_ai/Investigations - Scenarios.md"
+      - "discussions/quant_ai/Investigation 1 - One-Day Surfaces.md"
       - "discussions/quant_ai/The Conditional Experiment.ipynb"
-      - "discussions/quant_ai/The Multi-Day Cut.ipynb"
-      - "discussions/quant_ai/The Hedge Book.ipynb"
+      - "discussions/quant_ai/Hedging.ipynb"
+      - "discussions/quant_ai/GAN Hedging Scenarios.ipynb"
+      - "discussions/quant_ai/Multi-Day Paths.ipynb"
+      # Further Analysis
+      - "discussions/quant_ai/Further Analysis - Scenarios.md"
+      - "discussions/quant_ai/Scenario Engines Under Test.md"
+      - "discussions/quant_ai/VAE Surface Scenarios.ipynb"
+      - "discussions/quant_ai/Diffusion Surface Forecasts.ipynb"
+      - "discussions/quant_ai/The Families, Compared.ipynb"
+      - "discussions/quant_ai/Failure Modes and Next Tests.md"
+      # Ongoing Work
+      - "discussions/quant_ai/Ongoing Work - Scenarios.md"
+      # Technical Appendix
+      - "discussions/quant_ai/Technical Appendix - Scenarios.md"
+      - "discussions/quant_ai/Constraint Gates.md"
+      # Research
+      - "discussions/quant_ai/The Research Record.md"
+      - "discussions/quant_ai/Synthetic Training Data.ipynb"
       - "discussions/quant_ai/The Field.ipynb"
-      - "discussions/quant_ai/Featured Research.md"
       - "discussions/quant_ai/research/VolGAN.md"
       - "discussions/quant_ai/research/Data-Driven Hedging.md"
       - "discussions/quant_ai/research/Diffusion IV Forecasting.md"
@@ -42,35 +57,40 @@ chapters:
       - "discussions/quant_ai/research/Scenario-Generator Validation.md"
       - "discussions/quant_ai/research/Arbitrage-Free SVI.md"
       - "discussions/quant_ai/research/Multivariate Proper Scoring.md"
+      - "discussions/quant_ai/Featured Research.md"
   - title: Foundation Models for Forecasting
     items:
+      # Background
+      - "discussions/quant_ai/Background.md"
       - "discussions/quant_ai/Foundation Models for Forecasting.md"
-      - "discussions/quant_ai/Forecasters Under Test.md"
-      - "discussions/quant_ai/Covariates and Portfolio Volatility.md"
+      - "discussions/quant_ai/How Time-Series Foundation Models Work.md"
+      # Investigations
+      - "discussions/quant_ai/Investigations.md"
+      - "discussions/quant_ai/Investigation 1 - Across Five Markets.md"
       - "discussions/quant_ai/Comparator Choice and Forecast Horizon.md"
       - "discussions/quant_ai/Held-Out Adaptation.md"
+      - "discussions/quant_ai/Covariates and Portfolio Volatility.md"
       - "discussions/quant_ai/Clock and Calendar Information.md"
-      - "discussions/quant_ai/Candidate Mechanisms for the Gradient.md"
-      - "discussions/quant_ai/The Research Record - Forecasting.md"
-      - "discussions/quant_ai/Featured Research - Forecasting.md"
-      - "discussions/quant_ai/research/Chronos.md"
-      - "discussions/quant_ai/research/Pretrained TSFMs for Return Forecasting.md"
-      - "discussions/quant_ai/research/How Good Can Linear Models Be.md"
-      - "discussions/quant_ai/research/Revisiting TSFMs in Finance.md"
-      - "discussions/quant_ai/research/Information Leakage in TSFM Evaluation.md"
-      - "discussions/quant_ai/research/The TIME Benchmark.md"
-      - "discussions/quant_ai/research/Kronos.md"
-      - "discussions/quant_ai/research/DELPHYNE.md"
-      - "discussions/quant_ai/research/TSFMs vs Volatility Benchmarks.md"
-      - "discussions/quant_ai/research/TimesFM on Realized Volatility.md"
-      - "discussions/quant_ai/research/qlikeHAR.md"
-      - "discussions/quant_ai/research/Data-Driven Duration Management.md"
-      - "discussions/quant_ai/What the Evidence Supports Doing.md"
-      - "discussions/quant_ai/Inside the Checkpoints.md"
-      - "discussions/quant_ai/Demos - Forecasting.md"
-      - "discussions/quant_ai/The Forecast Guessing Game.ipynb"
-      - "discussions/quant_ai/Context to Fan Charts.ipynb"
+      # Further Analysis
+      - "discussions/quant_ai/Further Analysis.md"
+      - "discussions/quant_ai/Across-Session Volatility.md"
+      - "discussions/quant_ai/The Weekly Five-Market Design.md"
+      - "discussions/quant_ai/What Might Explain the Cross-Market Results.md"
+      # Ongoing Work
+      - "discussions/quant_ai/Ongoing Work.md"
+      # Technical Appendix
+      - "discussions/quant_ai/Technical Appendix.md"
+      - "discussions/quant_ai/Context to Forecast Quantiles.ipynb"
       - "discussions/quant_ai/Forecast Targets and Baselines.ipynb"
       - "discussions/quant_ai/The Cross-Asset Panel.ipynb"
       - "discussions/quant_ai/Calibration.ipynb"
       - "discussions/quant_ai/The Basket.ipynb"
+      # Research
+      - "discussions/quant_ai/Research.md"
+      - "discussions/quant_ai/research/Forecasting Realized Volatility at Scale.md"
+      - "discussions/quant_ai/research/Leakage and Lineage.md"
+      - "discussions/quant_ai/research/What the Benchmarks Measure.md"
+      - "discussions/quant_ai/research/Adaptation and Financial Specialization.md"
+      - "discussions/quant_ai/research/Calibration and Richer Information.md"
+      - "discussions/quant_ai/research/Two Controls from Outside the Panel.md"
+      - "discussions/quant_ai/Featured Research - Forecasting.md"

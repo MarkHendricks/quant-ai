@@ -8,15 +8,24 @@
 
 ## quant-ai specifics
 
-- One `content.yml` chapter block per MODULE (the M5 block is the model).
-  The sidebar TOC is post-processed: `scripts/restructure_toc.py` (a `build`
-  prerequisite) turns each block into a part whose Demos and Featured
-  Research chapters collapse their pages as sections, keyed on the first
-  items whose basenames start with "Demos" and "Featured Research". To add a
-  chapter, put its item BEFORE the module's Demos landing; demo/research
-  pages go after their landing item. A new module = a new chapter block with
-  its own "Demos ..."/"Featured Research ..." landing pages (basenames must
-  start with those words); a block without landings renders flat.
+- One `content.yml` chapter block per MODULE. The sidebar TOC is
+  post-processed: `scripts/restructure_toc.py` (a `build` prerequisite) turns
+  each block into a part with six collapsible groups — Background,
+  Investigations, Further Analysis, Ongoing Work, Technical Appendix,
+  Research. The grouping is DECLARED in that script's `STRUCTURE` table, not
+  inferred from page names. Adding, renaming, or retiring a page therefore
+  takes two edits — `content.yml` selects it, `STRUCTURE` places it — and the
+  script fails the build, naming the path, if the two disagree in either
+  direction. (It used to infer the split from `Demos`/`Featured Research`
+  landing pages; when the 2026-08-06 route restructure retired the `Demos`
+  pages the inference stopped matching and both parts would have rendered
+  flat. Declaring the structure is what makes that failure loud.)
+- **Staging noindex is ON.** Every built page carries
+  `<meta name="robots" content="noindex, nofollow">` (M021: the deploy is a
+  staging surface until the URL is shared). To let the book be indexed at
+  share-time, comment out the one line `_noindex: .` under
+  `sphinx.local_extensions` in `docs/_config.yml` and rebuild. Full rationale
+  and the verification command are in `docs/_noindex.py`.
 - Local builds assemble from the ../teaching-content WORKING TREE, which may
   be stale or on another session's branch. To build at the pin:
   `make build CONTENT=<worktree-at-pinned-sha>`. CI always builds at the pin.

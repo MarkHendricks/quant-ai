@@ -1,16 +1,29 @@
 #!/usr/bin/env python3
 """Post-assemble TOC restructure for quant-ai.
 
-The shared assembler emits every manifest item as a flat chapter. The
-generative-scenarios part keeps collapsible Demos and Featured Research
-chapters. The forecasting part nests its paper index and twelve paper notes
-under The Research Record, then ends with Demos and its notebooks.
+The shared assembler emits every manifest item as a flat chapter. Both modules
+in this book read as six groups — Background, Investigations, Further Analysis,
+Ongoing Work, Technical Appendix, Research — each opening on its own landing
+page, with the investigations and the engine comparison carrying a further
+level. This script rewrites the generated flat `docs/_toc.yml` into that shape.
 
-Per part, the split is inferred from landing pages by basename: the first
-file whose basename starts with "Demos" starts the demo sections; the first
-whose basename starts with "Featured Research" starts the research sections.
-A part with neither is left flat. New chapters flow through automatically:
-anything before the Demos landing stays top-level.
+The structure is declared in STRUCTURE below rather than inferred. The earlier
+version read the split off `Demos` and `Featured Research` landing pages by
+basename; the 2026-08-06 route restructure retired both `Demos` pages, so the
+inference stopped matching and each part silently rendered flat — a whole
+sidebar lost with no error. Declaring the structure makes that class of drift
+loud: STRUCTURE and the assembled page set are compared exactly, in both
+directions, and any disagreement fails the build.
+
+Adding, renaming, or retiring a page therefore takes two edits — `content.yml`
+selects it, STRUCTURE places it — and skipping either one stops the build with
+the offending path named.
+
+Titles: the assembler derives each sidebar label from the page's filename stem,
+which is why canonical destinations carry public names. A `title` in STRUCTURE
+overrides that label for the sidebar only, for the cases where the group already
+supplies the context the filename cannot (the investigation sequence, the group
+landing pages whose canonical stems carry a disambiguating suffix).
 
 Runs after `make assemble` (see Makefile); docs/_toc.yml stays generated and
 gitignored.
@@ -20,106 +33,166 @@ from pathlib import Path
 
 TOC = Path(__file__).resolve().parents[1] / "docs" / "_toc.yml"
 
+D = "discussions/quant_ai/"
+R = "discussions/quant_ai/research/"
+
+
+def page(path, title=None, children=()):
+    return {"file": path, "title": title, "children": list(children)}
+
+
+# Part caption -> the six groups, in reading order. Each group is a landing
+# page and its sections; a section may carry its own sections.
+STRUCTURE = {
+    "Generative Scenario Analysis": [
+        page(D + "Background - Scenarios", "Background", [
+            page(D + "Generative Models and Scenario Analysis"),
+            page(D + "What a Generative Model Is"),
+            page(D + "The Market Object"),
+        ]),
+        page(D + "Investigations - Scenarios", "Investigations", [
+            page(D + "Investigation 1 - One-Day Surfaces",
+                 "Investigation 1: One-Day Surfaces", [
+                     page(D + "The Conditional Experiment"),
+                 ]),
+            page(D + "Hedging", "Investigation 2: Hedging", [
+                page(D + "GAN Hedging Scenarios"),
+            ]),
+            page(D + "Multi-Day Paths", "Investigation 3: Multi-Day Paths"),
+        ]),
+        page(D + "Further Analysis - Scenarios", "Further Analysis", [
+            page(D + "Scenario Engines Under Test", None, [
+                page(D + "VAE Surface Scenarios"),
+                page(D + "Diffusion Surface Forecasts"),
+                page(D + "The Families, Compared"),
+            ]),
+            page(D + "Failure Modes and Next Tests"),
+        ]),
+        page(D + "Ongoing Work - Scenarios", "Ongoing Work"),
+        page(D + "Technical Appendix - Scenarios", "Technical Appendix", [
+            page(D + "Constraint Gates"),
+        ]),
+        page(D + "The Research Record", "Research", [
+            page(D + "Synthetic Training Data"),
+            page(D + "The Field"),
+            page(R + "VolGAN"),
+            page(R + "Data-Driven Hedging"),
+            page(R + "Diffusion IV Forecasting"),
+            page(R + "Tail-GAN"),
+            page(R + "Generative Models for VaR"),
+            page(R + "Neural-SDE Market Models"),
+            page(R + "Diffusion Factor Models"),
+            page(R + "The Koshiyama Null"),
+            page(R + "GenCast Evaluation Pattern"),
+            page(R + "Scenario-Generator Validation"),
+            page(R + "Arbitrage-Free SVI"),
+            page(R + "Multivariate Proper Scoring"),
+            page(D + "Featured Research", "Paper Index"),
+        ]),
+    ],
+    "Foundation Models for Forecasting": [
+        page(D + "Background", None, [
+            page(D + "Foundation Models for Forecasting"),
+            page(D + "How Time-Series Foundation Models Work"),
+        ]),
+        page(D + "Investigations", None, [
+            page(D + "Investigation 1 - Across Five Markets",
+                 "Investigation 1: Across Five Markets"),
+            page(D + "Comparator Choice and Forecast Horizon",
+                 "Investigation 2: Across Horizons and Benchmarks"),
+            page(D + "Held-Out Adaptation",
+                 "Investigation 3: With Local Adaptation"),
+            page(D + "Covariates and Portfolio Volatility",
+                 "Investigation 4: With Covariates"),
+            page(D + "Clock and Calendar Information",
+                 "Investigation 5: At Intraday Frequencies"),
+        ]),
+        page(D + "Further Analysis", None, [
+            page(D + "Across-Session Volatility"),
+            page(D + "The Weekly Five-Market Design"),
+            page(D + "What Might Explain the Cross-Market Results"),
+        ]),
+        page(D + "Ongoing Work"),
+        page(D + "Technical Appendix", None, [
+            page(D + "Context to Forecast Quantiles"),
+            page(D + "Forecast Targets and Baselines"),
+            page(D + "The Cross-Asset Panel"),
+            page(D + "Calibration"),
+            page(D + "The Basket"),
+        ]),
+        page(D + "Research", None, [
+            page(R + "Forecasting Realized Volatility at Scale"),
+            page(R + "Leakage and Lineage"),
+            page(R + "What the Benchmarks Measure"),
+            page(R + "Adaptation and Financial Specialization"),
+            page(R + "Calibration and Richer Information"),
+            page(R + "Two Controls from Outside the Panel"),
+            page(D + "Featured Research - Forecasting", "Paper Index"),
+        ]),
+    ],
+}
+
 
 def parse_parts(text):
-    parts, cur = [], None
+    """Read the assembled flat TOC: [(caption, {file: assembler title})]."""
+    parts, cur, last = [], None, None
     for line in text.splitlines():
         s = line.strip()
         if s.startswith("- caption:"):
-            cur = {"caption": s[len("- caption:"):].strip(), "files": []}
+            cur = (s[len("- caption:"):].strip(), {})
             parts.append(cur)
+            last = None
         elif s.startswith('- file: "') and cur is not None:
-            cur["files"].append(s[len('- file: "'):-1])
+            last = s[len('- file: "'):-1]
+            cur[1][last] = None
+        elif s.startswith('title: "') and cur is not None and last:
+            cur[1][last] = s[len('title: "'):-1]
     return parts
 
 
-def basename(f):
-    return f.rsplit("/", 1)[-1]
+def walk(nodes):
+    for nd in nodes:
+        yield nd
+        yield from walk(nd["children"])
 
 
-def restructure_forecasting(part):
-    files = part["files"]
-    names = [basename(f) for f in files]
-    markers = {
-        "record": "The Research Record - Forecasting",
-        "papers": "Featured Research - Forecasting",
-        "guidance": "What the Evidence Supports Doing",
-        "demos": "Demos - Forecasting",
-    }
-    try:
-        record_i, papers_i, guidance_i, demos_i = (
-            names.index(markers[key])
-            for key in ("record", "papers", "guidance", "demos")
-        )
-    except ValueError as exc:
-        sys.exit(f"restructure_toc: missing forecasting marker: {exc}")
-    if not record_i < papers_i < guidance_i < demos_i:
-        sys.exit("restructure_toc: forecasting markers are out of order")
+def emit(nodes, depth, titles, out):
+    """Render one level; jb-book nests `sections:` under each entry."""
+    pad = "  " * (depth + 1)
+    for nd in nodes:
+        out.append(f'{pad}- file: "{nd["file"]}"')
+        title = nd["title"] or titles.get(nd["file"])
+        if title:
+            out.append(f'{pad}  title: "{title}"')
+        if nd["children"]:
+            out.append(f"{pad}  sections:")
+            emit(nd["children"], depth + 1, titles, out)
 
-    mains = files[:record_i]
-    papers = files[papers_i:guidance_i]
-    after_record = files[guidance_i:demos_i]
-    demos = files[demos_i + 1:]
-    if not (
-        len(mains) == 7
-        and len(papers) == 13
-        and len(after_record) == 2
-        and len(demos) == 6
-    ):
+
+def restructure(caption, titles):
+    groups = STRUCTURE.get(caption)
+    if groups is None:
+        sys.exit(f"restructure_toc: no declared structure for part {caption!r}; "
+                 "add it to STRUCTURE or the part would render flat")
+    declared = [nd["file"] for nd in walk(groups)]
+    dupes = sorted({f for f in declared if declared.count(f) > 1})
+    if dupes:
+        sys.exit(f"restructure_toc: {caption}: page declared twice: {dupes}")
+    assembled = set(titles)
+    missing = sorted(set(declared) - assembled)
+    extra = sorted(assembled - set(declared))
+    if missing or extra:
         sys.exit(
-            "restructure_toc: unexpected forecasting route counts "
-            f"{len(mains)}/{len(papers)}/{len(after_record)}/{len(demos)}"
-        )
+            f"restructure_toc: {caption}: STRUCTURE and the assembled page set "
+            f"disagree.\n  declared but not assembled (check content.yml and "
+            f"the canonical port): {missing}\n  assembled but not placed (add "
+            f"it to STRUCTURE): {extra}")
 
-    L = [f"- caption: {part['caption']}", "  chapters:"]
-    for f in mains:
-        L.append(f'  - file: "{f}"')
-    L += [f'  - file: "{files[record_i]}"', "    sections:"]
-    for i, f in enumerate(papers):
-        L.append(f'    - file: "{f}"')
-        if i == 0:
-            L.append('      title: "Paper Index"')
-    for f in after_record:
-        L.append(f'  - file: "{f}"')
-    L += [f'  - file: "{files[demos_i]}"', "    sections:"]
-    for f in demos:
-        L.append(f'    - file: "{f}"')
-    return L, (
-        f"{part['caption']}: {len(mains)} experiment chapters, "
-        f"{len(papers)} research sections, {len(after_record)} closing chapters, "
-        f"{len(demos)} demo sections"
-    )
-
-
-def restructure(part):
-    files = part["files"]
-    if "The Research Record - Forecasting" in [basename(f) for f in files]:
-        return restructure_forecasting(part)
-    demos_i = next((i for i, f in enumerate(files)
-                    if basename(f).startswith("Demos")), None)
-    research_i = next((i for i, f in enumerate(files)
-                       if basename(f).startswith("Featured Research")), None)
-    L = [f"- caption: {part['caption']}", "  chapters:"]
-    if demos_i is None or research_i is None or not demos_i < research_i:
-        for f in files:
-            L.append(f'  - file: "{f}"')
-        return L, f"{part['caption']}: flat ({len(files)} chapters)"
-    mains = files[:demos_i]
-    demos = files[demos_i + 1:research_i]
-    research = files[research_i + 1:]
-    if not (mains and demos and research):
-        sys.exit(f"restructure_toc: empty group in part {part['caption']!r}; "
-                 "check content.yml order")
-    for f in mains:
-        L.append(f'  - file: "{f}"')
-    L += [f'  - file: "{files[demos_i]}"', "    sections:"]
-    for f in demos:
-        L.append(f'    - file: "{f}"')
-    L += [f'  - file: "{files[research_i]}"', "    sections:"]
-    for f in research:
-        L.append(f'    - file: "{f}"')
-    return L, (f"{part['caption']}: {len(mains)} chapters, "
-               f"{len(demos)} demo + {len(research)} research sections")
+    out = [f"- caption: {caption}", "  chapters:"]
+    emit(groups, 0, titles, out)
+    counts = "/".join(str(len(g["children"])) for g in groups)
+    return out, (f"{caption}: {len(groups)} groups, {len(declared)} pages "
+                 f"(sections per group {counts})")
 
 
 def main():
@@ -128,8 +201,8 @@ def main():
         sys.exit("restructure_toc: no parts found in generated toc")
     L = ["format: jb-book", "root: index", "parts:"]
     reports = []
-    for part in parts:
-        lines, report = restructure(part)
+    for caption, titles in parts:
+        lines, report = restructure(caption, titles)
         L += lines
         reports.append(report)
     TOC.write_text("\n".join(L) + "\n")
