@@ -4,7 +4,7 @@ author: "Mark Hendricks"
 ---
 
 <!-- The root page is the reviewed results landing, ported from the source
-     book's index.md at ai-models f438f53b. It is that file byte for byte
+     book's index.md at ai-models 3386e9d4. It is that file byte for byte
      below the H1, except that every route gains the canonical quant_ai/
      directory and the two investigation stems land under their ruled
      labels (M026). Do not author a parallel summary here: re-port instead,
@@ -26,7 +26,8 @@ forecasts.
 [Background](discussions/quant_ai/Background.md) · [Investigations](discussions/quant_ai/Investigations.md) · [Further Analysis](discussions/quant_ai/Further%20Analysis.md) · [Research](discussions/quant_ai/Research.md)
 :::
 
-Every outcome postdates the released weights being tested.
+Every scored origin follows the latest public release among the 4 scored zero-shot
+models; later-added comparators are shown as context.
 
 - Five experiments. Every one is zero-shot except Investigation 3.
 - The five forecast objects differ, so no two results are combined and there is no overall win rate.
@@ -223,6 +224,8 @@ draws implies **1.02**. The stationary block bootstrap implies **0.90**.
 | The full definitions behind the compact statements the evidence pages carry | [Technical Appendix](discussions/quant_ai/Technical%20Appendix%20-%20Scenarios.md) |
 
 ---
+
+*Updated August 2026*
 
 **Author:** Mark Hendricks
 **Email:** hendricks@uchicago.edu
