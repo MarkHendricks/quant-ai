@@ -4,7 +4,7 @@ author: "Mark Hendricks"
 ---
 
 <!-- The root page is the reviewed results landing, ported from the source
-     book's index.md at ai-models 0a79afdb. It is that file byte for byte
+     book's index.md at ai-models d2f6f85d. It is that file byte for byte
      below the H1, except that every route gains the canonical quant_ai/
      directory and the two investigation stems land under their ruled
      labels (M026). Do not author a parallel summary here: re-port instead,
@@ -140,74 +140,91 @@ they imply, the hedge they choose, and the five-day paths they generate.
 [Background](discussions/quant_ai/Background%20-%20Scenarios.md) · [Investigations](discussions/quant_ai/Investigations%20-%20Scenarios.md) · [Further Analysis](discussions/quant_ai/Further%20Analysis%20-%20Scenarios.md) · [Research](discussions/quant_ai/The%20Research%20Record.md)
 :::
 
-The winning baseline is a different baseline at each of the three decision layers,
-and no fitted deep engine wins any of them. GARCH on factor scores takes
-conditional coverage with 2 of 15 breaches at COVID, a stationary block bootstrap
-takes the five-day path distribution at a 0.90 variance ratio against a realized
-0.83, and an analytic Black-76 delta takes the hedge at 19 index points of median
-error.
-
 | Investigation | Generated object and loss |
 |---|---|
 | [1. One-Day Surfaces](discussions/quant_ai/Investigation%201%20-%20One-Day%20Surfaces.md) | Next-day 114-coordinate volatility surface, scored on 95% and 99% tail coverage and on four structural gates |
 | [2. Hedging](discussions/quant_ai/Hedging.ipynb) | The same draws, scored on hedging error for a fixed book of options |
 | [3. Multi-Day Paths](discussions/quant_ai/Multi-Day%20Paths.ipynb) | Cumulative five-day surface moves, scored on path distribution and coverage |
 
-One experiment, one object, five held-out episodes. Investigation 2 changes only
-the loss. Investigation 3 changes only the horizon.
-
 ### Finding 1. Repairing the surface does not move the tail
 
-**100%** structural pass after a post-generation projection. **Every** coverage
-count unchanged, in all five episodes.
+| Repair check | Result |
+|---|---:|
+| COVID draws moved | GARCH 38%; VolGAN 82% |
+| Calendar and smile-shape pass after projection | 100% for both engines |
+| Coverage counts after projection | Unchanged in all five episodes |
+| Draws beyond the realized 99th percentile | VAE 0.0%; history 1.0% |
 
-- The projection moves 38% of GARCH's COVID draws and 82% of VolGAN's, and lifts both engines to a perfect calendar and smile-shape score.
-- The VAE is the cleanest generator on the board by every structural measure and puts 0.0% of its draws beyond the realized 99th percentile, against 1.0% in history. Valid surfaces with the tail smoothed out.
-- What would overturn it: one engine clearing the gates and the coverage count on the same draws. None of the eight does.
+- The VAE is the cleanest generator by the structural measures and smooths out the upper tail.
+- One engine clearing the gates and the coverage count on the same draws would overturn this result. None of the eight does.
 
 [The projection repair](discussions/quant_ai/Investigation%201%20-%20One-Day%20Surfaces.md#the-projection-repair)
 
-### Finding 2. Conditioning spends the sample it is asking for
+### Finding 2. Conditioning leaves 2.2 effective days at COVID
 
-**42 of 2,741** days match the conditioning state. At COVID the kernel engine's
-effective sample is **2.2 days**.
+| Conditioning diagnostic | Result |
+|---|---:|
+| Days matching the state | 42 of 2,741 |
+| Effective sample at COVID | 2.2 days |
+| Hard matches after removing COVID | 27 days |
+| Nearest days to the 2026-03-30 state | 0 of 40 from 2020 |
 
-- Hard matching leaves 27 usable days once COVID is removed. The 40 nearest days to the 2026-03-30 state contain no observation from 2020.
-- At five days the conditional engines degrade and the unconditional ones do not move: hard replay 4 to 5 of 15, kernel 7 to 14, iterated VolGAN 3 to 7, unconditional engines flat at 4 of 15.
-- What would overturn it: independent stress history. A wider bandwidth changes weights, not analogues.
+COVID upper-95% breach days:
+
+| Engine | One day | Five days |
+|---|---:|---:|
+| Hard replay | 4 of 15 | 5 of 15 |
+| Kernel | 7 of 15 | 14 of 15 |
+| Iterated VolGAN | 3 of 15 | 7 of 15 |
+| Unconditional engines | 4 of 15 | 4 of 15 |
+
+- Independent stress history would overturn this reading. A wider bandwidth changes weights, not analogues.
 
 [How much history the state actually holds](discussions/quant_ai/Investigation%201%20-%20One-Day%20Surfaces.md#how-much-history-the-state-actually-holds)
 
-### Finding 3. Every scenario hedge loses to a one-line delta at the stress it was built for
+### Finding 3. Black-76 delta beats every scenario hedge at COVID
 
-Black-76 delta, median absolute error **19 index points** across the 15 COVID
-days. Scenario-selected hedges: **21 to 67**.
+Median absolute hedge error, index points:
 
-- No engine beats the delta on more than 6 of 15 days.
-- The comparator is not a scenario engine. It is a quantity read off the marks in one line.
-- The ordering reverses away from the stress. In the 2022 cycle the kernel hedge edges the delta, 7.8 against 8.4, and is better on 10 of 17 days.
+| Episode | Black-76 delta | Scenario hedge | Days scenario beats delta |
+|---|---:|---:|---:|
+| COVID | 19 | 21 to 67 | No engine more than 6 of 15 |
+| 2022 cycle | 8.4 | Kernel 7.8 | 10 of 17 |
+
+- The comparator is the analytic Black-76 delta read directly from the marks.
 
 [Investigation 2](discussions/quant_ai/Hedging.ipynb)
 
 ### Finding 4. Hedged does not mean covered
 
-Every engine breaches its own 5th-percentile hedged-P&L band at COVID.
-Unconditional engines on **4 to 5 of 15** days, the kernel engine on **10 of 15**.
+COVID band results, days of 15:
 
-- GARCH breaches on only 3 of 15 by carrying the widest bands on the board.
-- VolGAN breaches the gain side on 11 of 15 days, because on 14 of those 15 its predicted 95th percentile of hedged profit and loss is itself negative. It forecasts a near-certain loss on a book that often gained.
-- What would overturn it: a residual distribution scored as carefully as the hedge ratio.
+| Engine or band | Days |
+|---|---:|
+| GARCH, loss-side breach | 3 |
+| Unconditional engines, loss-side breach | 4 to 5 |
+| Kernel, loss-side breach | 10 |
+| VolGAN, gain-side breach | 11 |
+| VolGAN 95th percentile below zero | 14 |
+
+- GARCH's lower breach count comes with the widest bands.
+- The hedge residual distribution still needs to be scored as carefully as the hedge ratio.
 
 [Investigation 2](discussions/quant_ai/Hedging.ipynb)
 
-### Finding 5. At five days the multi-day folklore runs backwards
+### Finding 5. Independent replay overstates five-day dispersion
 
-Realized five-day variance ratio, ex-COVID: **0.83**. Summing five independent
-draws implies **1.02**. The stationary block bootstrap implies **0.90**.
+| Five-day quantity | Result |
+|---|---:|
+| Realized variance ratio, ex-COVID | 0.83 |
+| Independent-replay variance ratio | 1.02 |
+| Stationary-bootstrap variance ratio | 0.90 |
+| Lag-1 autocorrelation of daily changes | -0.07 |
+| COVID upper-95% breaches, independent replay | 4 of 15 |
+| COVID upper-95% breaches, stationary bootstrap | 4 of 15 |
 
-- Daily implied-volatility changes mean-revert, lag-1 autocorrelation -0.07, so independent replay overstates five-day dispersion rather than understating it.
-- The bootstrap lands closer because its paths are contiguous history and inherit the mean reversion.
-- Both still breach on the same 4 of 15 COVID days. The unconditional improvement does not reach the conditional miss.
+- Independent replay overstates five-day dispersion. The block bootstrap inherits the mean reversion.
+- The closer unconditional fit does not resolve the conditional miss.
 
 [Investigation 3](discussions/quant_ai/Multi-Day%20Paths.ipynb)
 
