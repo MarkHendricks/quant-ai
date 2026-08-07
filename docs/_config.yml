@@ -68,7 +68,6 @@ html_css_files:
 # (check_shell.py warns on any selector beyond :root there).
 - landing.css
 html_js_files:
-- build-stamp.js
 - interactive-features.js
 # Reader-facing distribution posture: the site is the deliverable; no
 # repository/edit/download surfaces (assembled content is not in this repo).
