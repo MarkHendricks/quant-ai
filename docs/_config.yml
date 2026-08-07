@@ -21,12 +21,10 @@ sphinx:
   # add course-notation OVERRIDES only under config.mathjax3_config.tex.macros
   local_extensions:
     _mathjax_macros: .
-    # STAGING NOINDEX (M021). The book deploys to a public URL before it is
-    # shared, so every page carries meta robots noindex until share-time.
-    # AT SHARE-TIME: comment out or delete the single line below, rebuild, and
-    # the tag is gone. Rationale and verification: docs/_noindex.py.
-    # FLIPPED OFF at share-time, 2026-08-07: the URL goes to Millennium with
-    # this deploy, so the book is indexable. Restore the line to re-stage.
+    # INDEXING ON since share-time, 2026-08-07 (M021). The URL has been shared,
+    # so the noindex extension remains disabled. Restore it only if Mark
+    # explicitly moves the book back to staging. Historical rationale and the
+    # verification command remain in docs/_noindex.py.
     # _noindex: .
   config:
     suppress_warnings:
