@@ -4,7 +4,7 @@ author: "Mark Hendricks"
 ---
 
 <!-- The root page is the reviewed results landing, ported from the source
-     book's index.md at ai-models 3386e9d4. It is that file byte for byte
+     book's index.md at ai-models 77056956. It is that file byte for byte
      below the H1, except that every route gains the canonical quant_ai/
      directory and the two investigation stems land under their ruled
      labels (M026). Do not author a parallel summary here: re-port instead,
