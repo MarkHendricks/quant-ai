@@ -5,6 +5,10 @@ author: "Mark Hendricks"
 
 # Quant AI
 
+**Time-Series Foundation Models:** [Investigation 1: Across Five Markets](discussions/quant_ai/Investigation%201%20-%20Across%20Five%20Markets.md) → [How Time-Series Foundation Models Work](discussions/quant_ai/How%20Time-Series%20Foundation%20Models%20Work.md) → [Research](discussions/quant_ai/Research.md).
+
+**Generative Scenario Analysis:** [Investigation 1: One-Day Surfaces](discussions/quant_ai/Investigation%201%20-%20One-Day%20Surfaces.md) → [What a Generative Model Is](discussions/quant_ai/What%20a%20Generative%20Model%20Is.ipynb) → [The Research Record](discussions/quant_ai/The%20Research%20Record.md).
+
 ## Time-Series Foundation Models
 
 :::{div} part-porch
