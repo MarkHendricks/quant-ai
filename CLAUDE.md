@@ -35,12 +35,11 @@
   together: the chapter blocks, `STRUCTURE` in `scripts/restructure_toc.py`
   (keyed on the caption), and the landing's two H2s plus the `landing.css`
   selectors keyed on their generated ids.
-- **Staging noindex is ON.** Every built page carries
-  `<meta name="robots" content="noindex, nofollow">` (M021: the deploy is a
-  staging surface until the URL is shared). To let the book be indexed at
-  share-time, comment out the one line `_noindex: .` under
-  `sphinx.local_extensions` in `docs/_config.yml` and rebuild. Full rationale
-  and the verification command are in `docs/_noindex.py`.
+- **Indexing is ON.** The URL was shared on 2026-08-07, so `_noindex: .` is
+  commented out under `sphinx.local_extensions` in `docs/_config.yml`. Do not
+  restore the noindex extension unless Mark explicitly moves the book back to
+  staging. The original rationale and verification command remain in
+  `docs/_noindex.py`.
 - Local builds assemble from the ../teaching-content WORKING TREE, which may
   be stale or on another session's branch. To build at the pin:
   `make build CONTENT=<worktree-at-pinned-sha>`. CI always builds at the pin.

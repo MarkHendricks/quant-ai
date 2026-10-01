@@ -83,7 +83,7 @@ STRUCTURE = {
         ]),
         page(D + "Research", None, [
             page(R + "Forecasting Realized Volatility at Scale"),
-            page(R + "Leakage and Lineage"),
+            page(R + "Leakage and Lineage", "Leakage via Weights"),
             page(R + "What the Benchmarks Measure"),
             page(R + "Adaptation and Financial Specialization"),
             page(R + "Calibration and Richer Information"),
