@@ -5,15 +5,15 @@ author: "Mark Hendricks"
 
 # Quant AI
 
-**Time-Series Foundation Models:** [Investigation 1: Across Five Markets](discussions/quant_ai/Investigation%201%20-%20Across%20Five%20Markets.md) → [How Time-Series Foundation Models Work](discussions/quant_ai/How%20Time-Series%20Foundation%20Models%20Work.md) → [Research](discussions/quant_ai/Research.md).
+**Time-Series Foundation Models:** [Across Five Markets](discussions/quant_ai/Investigation%201%20-%20Across%20Five%20Markets.md) → [How Time-Series Foundation Models Work](discussions/quant_ai/How%20Time-Series%20Foundation%20Models%20Work.md) → [Research](discussions/quant_ai/Research.md).
 
-**Generative Scenario Analysis:** [Investigation 1: One-Day Surfaces](discussions/quant_ai/Investigation%201%20-%20One-Day%20Surfaces.md) → [What a Generative Model Is](discussions/quant_ai/What%20a%20Generative%20Model%20Is.ipynb) → [The Research Record](discussions/quant_ai/The%20Research%20Record.md).
+**Generative Scenario Analysis:** [One-Day Surfaces](discussions/quant_ai/Investigation%201%20-%20One-Day%20Surfaces.md) → [What a Generative Model Is](discussions/quant_ai/What%20a%20Generative%20Model%20Is.ipynb) → [The Research Record](discussions/quant_ai/The%20Research%20Record.md).
 
 ## Time-Series Foundation Models
 
 :::{div} part-porch
-Five experiments ask whether released forecasting models improve on classical volatility
-forecasts.
+Do released forecasting models improve on classical volatility forecasts? Five
+questions, each with its own design.
 
 [Background](discussions/quant_ai/Background.md) · [Investigations](discussions/quant_ai/Investigations.md) · [Further Analysis](discussions/quant_ai/Further%20Analysis.md) · [Research](discussions/quant_ai/Research.md)
 :::
@@ -21,17 +21,17 @@ forecasts.
 Every scored origin follows the latest public release among the 4 scored zero-shot
 models; later-added comparators are shown as context.
 
-- Five experiments. Every one is zero-shot except Investigation 3.
+- Five questions. Every design is zero-shot except Investigation 3.
 - The five forecast objects differ, so no two results are combined and there is no overall win rate.
 - Each is read against the published record, collected in [Research](discussions/quant_ai/Research.md).
 
-| Investigation | Forecast object |
+| Question | Forecast object |
 |---|---|
-| [1. Across Five Markets](discussions/quant_ai/Investigation%201%20-%20Across%20Five%20Markets.md) | Next-session realized volatility, regular session, issued daily; ES, NQ, TY, CL, GC |
-| [2. Across Horizons and Benchmarks](discussions/quant_ai/Comparator%20Choice%20and%20Forecast%20Horizon.md) | Realized volatility 1, 5 and 22 sessions ahead; 26-future panel |
-| [3. With Local Adaptation](discussions/quant_ai/Held-Out%20Adaptation.md) | Realized-volatility quantiles on futures excluded from fitting |
-| [4. With Covariates](discussions/quant_ai/Covariates%20and%20Portfolio%20Volatility.md) | Forward five-session volatility of a nine-sector basket, issued weekly |
-| [5. At Intraday Frequencies](discussions/quant_ai/Clock%20and%20Calendar%20Information.md) | Hourly futures and equity realized volatility, and a frozen event grid |
+| [1. Do released models beat the classical forecast?](discussions/quant_ai/Investigation%201%20-%20Across%20Five%20Markets.md) | Next-session realized volatility, regular session, issued daily; ES, NQ, TY, CL, GC |
+| [2. Does the comparator or horizon change the answer?](discussions/quant_ai/Comparator%20Choice%20and%20Forecast%20Horizon.md) | Realized volatility 1, 5 and 22 sessions ahead; 26-future panel |
+| [3. Does adaptation help held-out markets?](discussions/quant_ai/Held-Out%20Adaptation.md) | Realized-volatility quantiles on futures excluded from fitting |
+| [4. Do covariates improve the forecast?](discussions/quant_ai/Covariates%20and%20Portfolio%20Volatility.md) | Forward five-session volatility of a nine-sector basket, issued weekly |
+| [5. What changes at intraday frequencies?](discussions/quant_ai/Clock%20and%20Calendar%20Information.md) | Hourly futures and equity realized volatility, and a frozen event grid |
 
 :::{div} part-jump
 [Jump to Generative Scenario Analysis ↓](#generative-scenario-analysis)
@@ -134,11 +134,11 @@ they imply, the hedge they choose, and the five-day paths they generate.
 [Background](discussions/quant_ai/Background%20-%20Scenarios.md) · [Investigations](discussions/quant_ai/Investigations%20-%20Scenarios.md) · [Further Analysis](discussions/quant_ai/Further%20Analysis%20-%20Scenarios.md) · [Research](discussions/quant_ai/The%20Research%20Record.md)
 :::
 
-| Investigation | Generated object and loss |
+| Question | Generated object and loss |
 |---|---|
-| [1. One-Day Surfaces](discussions/quant_ai/Investigation%201%20-%20One-Day%20Surfaces.md) | Next-day 114-coordinate volatility surface, scored on 95% and 99% tail coverage and on G2/G3 checks; G1 by construction, G4 untested |
-| [2. Hedging](discussions/quant_ai/Hedging.ipynb) | Joint return-and-surface draws, with PCA, GARCH and VAE refitted on the 115-coordinate object, scored on hedge error |
-| [3. Multi-Day Paths](discussions/quant_ai/Multi-Day%20Paths.ipynb) | Cumulative five-day surface moves, scored on path distribution and coverage |
+| [1. Can a generator cover the tail without breaking the surface?](discussions/quant_ai/Investigation%201%20-%20One-Day%20Surfaces.md) | Next-day 114-coordinate volatility surface, scored on 95% and 99% tail coverage and on G2/G3 checks; G1 by construction, G4 untested |
+| [2. Does a scenario hedge beat the delta?](discussions/quant_ai/Hedging.ipynb) | Joint return-and-surface draws, with PCA, GARCH and VAE refitted on the 115-coordinate object, scored on hedge error |
+| [3. Does the design hold at five days?](discussions/quant_ai/Multi-Day%20Paths.ipynb) | Cumulative five-day surface moves, scored on path distribution and coverage |
 
 ### Finding 1. Repairing the surface does not move the tail
 
