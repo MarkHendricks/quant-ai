@@ -83,9 +83,9 @@ range across five seeds:
 
 [Investigation 3](discussions/quant_ai/Held-Out%20Adaptation.md#a-held-out-futures-lora-test)
 
-### Finding 4. Covariates move the center and collapse the band
+### Finding 4. Covariates collapse the band; the center depends on horizon
 
-Chronos-2 on the nine-sector basket, post-release:
+Chronos-2 on the nine-sector basket, post-release, five-session target issued weekly:
 
 | Forecast | MAE, vol points | q10-q90 coverage |
 |---|---:|---:|
@@ -93,7 +93,8 @@ Chronos-2 on the nine-sector basket, post-release:
 | Chronos-2, with sector legs and VIX | 2.99 | 22.9% |
 | Chronos-2, target history only | 3.31 | 74.3% |
 
-- Nominal coverage is 80%. Covariates improve the median and leave the quantiles unusable as bands.
+- Nominal coverage is 80%. At the five-session horizon covariates improve the median and leave the quantiles unusable as bands.
+- Issued daily at one session, the center flips: target-only 4.90 beats the classical 5.10 and the conditioned 5.30 (p = 0.043 on identical origins).
 - The classical arm is a point forecast, which is why it has no coverage to report.
 
 [Investigation 4](discussions/quant_ai/Covariates%20and%20Portfolio%20Volatility.md#basket-volatility-with-covariates)
