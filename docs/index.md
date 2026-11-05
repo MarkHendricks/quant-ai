@@ -50,6 +50,7 @@ Pooled q50 MAE on 881 daily one-session origins across ES, NQ, TY, CL and GC:
 - The models capture **87% to 93%** of the classical forecast's improvement and stay **1.1% to 2.0%** above its MAE.
 - The comparator is HAR or log-HAR, chosen per market on an earlier 252-origin grid.
 - Scoring against no-change measures skill at forecasting the change, not persistence.
+- The pooled 1.1% to 2.0% gap carries no paired test. Tested market by market, the models' edge is detectable only on TY (all four cells, p at most 0.00087), and three competitive cells on ES and NQ carry a detectable classical edge at p < 0.10.
 
 [The pool](discussions/quant_ai/Investigation%201%20-%20Across%20Five%20Markets.md#the-pool)
 
@@ -175,7 +176,7 @@ COVID upper-95% breach days:
 
 [Effective sample at the state](discussions/quant_ai/Investigation%201%20-%20One-Day%20Surfaces.md#effective-sample-at-the-state)
 
-### Finding 3. Black-76 delta beats every scenario hedge at COVID
+### Finding 3. No scenario hedge beats the Black-76 delta at COVID
 
 Median absolute hedge error, index points:
 
@@ -185,6 +186,8 @@ Median absolute hedge error, index points:
 | 2022 cycle | 8.4 | Kernel 7.8 | 10 of 17 |
 
 - The comparator is the analytic Black-76 delta read directly from the marks.
+- Paired daily tests: five engines are clearly behind the delta (Wilcoxon p at most 0.0043); unconditional replay, the block bootstrap and PCA-Gaussian are not distinguishable from it on 15 days, and no engine's median beats the delta's in any of 10 draw streams.
+- The kernel's 2022 edge is not distinguishable from zero on 17 days (Wilcoxon p = 0.49).
 
 [Investigation 2](discussions/quant_ai/Hedging.ipynb)
 
@@ -201,6 +204,7 @@ COVID band results, days of 15:
 | VolGAN 95th percentile below zero | 14 |
 
 - GARCH's lower breach count comes with the widest bands.
+- Under independence a working 5% band breaches 3 or more of 15 days with probability 0.036 and 4 or more with 0.0055, so every engine's band fails this reference; serial dependence widens the tolerance by an amount 15 days cannot measure.
 - The hedge residual distribution still needs to be scored as carefully as the hedge ratio.
 
 [Investigation 2](discussions/quant_ai/Hedging.ipynb)
