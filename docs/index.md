@@ -206,6 +206,7 @@ COVID band results, days of 15:
 
 - GARCH's lower breach count comes with the widest bands.
 - Under independence a working 5% band breaches 3 or more of 15 days with probability 0.036 and 4 or more with 0.0055, so every engine's band fails this reference; serial dependence widens the tolerance by an amount 15 days cannot measure.
+- Scored as a one-day risk number for the whole book at COVID, every engine fails on both sides: realized P&L lands above the 95% band on 7 to 9 of 15 days and below the 5% band on 2 to 5.
 - The hedge residual distribution still needs to be scored as carefully as the hedge ratio.
 
 [Investigation 2](discussions/quant_ai/Hedging.ipynb)
