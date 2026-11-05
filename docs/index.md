@@ -51,9 +51,9 @@ Pooled q50 MAE on 881 daily one-session origins across ES, NQ, TY, CL and GC:
 - The comparator is HAR or log-HAR, chosen per market on an earlier 252-origin grid.
 - Scoring against no-change measures skill at forecasting the change, not persistence.
 
-[The pool](discussions/quant_ai/Investigation%201%20-%20Across%20Five%20Markets.md#what-the-pool-says)
+[The pool](discussions/quant_ai/Investigation%201%20-%20Across%20Five%20Markets.md#the-pool)
 
-### Finding 2. Comparator construction changes the verdict
+### Finding 2. Comparator construction changes the result
 
 Chronos-2 at 120M, one session ahead on the 26-future panel, as a share of each
 comparator's loss:
@@ -173,7 +173,7 @@ COVID upper-95% breach days:
 
 - The result describes weight concentration under the chosen state and bandwidth. It does not count independent days or establish robustness to another bandwidth.
 
-[How much history the state actually holds](discussions/quant_ai/Investigation%201%20-%20One-Day%20Surfaces.md#how-much-history-the-state-actually-holds)
+[Effective sample at the state](discussions/quant_ai/Investigation%201%20-%20One-Day%20Surfaces.md#effective-sample-at-the-state)
 
 ### Finding 3. Black-76 delta beats every scenario hedge at COVID
 
@@ -188,7 +188,7 @@ Median absolute hedge error, index points:
 
 [Investigation 2](discussions/quant_ai/Hedging.ipynb)
 
-### Finding 4. Hedged does not mean covered
+### Finding 4. Hedge-error bands fail at COVID
 
 COVID band results, days of 15:
 
