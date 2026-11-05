@@ -58,15 +58,15 @@ STRUCTURE = {
         ]),
         page(D + "Investigations", None, [
             page(D + "Investigation 1 - Across Five Markets",
-                 "Investigation 1: Across Five Markets"),
+                 "1. Do released models beat the classical forecast?"),
             page(D + "Comparator Choice and Forecast Horizon",
-                 "Investigation 2: Across Horizons and Benchmarks"),
+                 "2. Does the comparator or horizon change the answer?"),
             page(D + "Held-Out Adaptation",
-                 "Investigation 3: With Local Adaptation"),
+                 "3. Does adaptation help held-out markets?"),
             page(D + "Covariates and Portfolio Volatility",
-                 "Investigation 4: With Covariates"),
+                 "4. Do covariates improve the forecast?"),
             page(D + "Clock and Calendar Information",
-                 "Investigation 5: At Intraday Frequencies"),
+                 "5. What changes at intraday frequencies?"),
         ]),
         page(D + "Further Analysis", None, [
             page(D + "Across-Session Volatility"),
@@ -99,13 +99,13 @@ STRUCTURE = {
         ]),
         page(D + "Investigations - Scenarios", "Investigations", [
             page(D + "Investigation 1 - One-Day Surfaces",
-                 "Investigation 1: One-Day Surfaces", [
+                 "1. Can a generator cover the tail without breaking the surface?", [
                      page(D + "The Conditional Experiment"),
                  ]),
-            page(D + "Hedging", "Investigation 2: Hedging", [
+            page(D + "Hedging", "2. Does a scenario hedge beat the delta?", [
                 page(D + "GAN Hedging Scenarios"),
             ]),
-            page(D + "Multi-Day Paths", "Investigation 3: Multi-Day Paths"),
+            page(D + "Multi-Day Paths", "3. Does the design hold at five days?"),
         ]),
         page(D + "Further Analysis - Scenarios", "Further Analysis", [
             page(D + "Scenario Engines Under Test", None, [
