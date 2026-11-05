@@ -233,7 +233,7 @@ COVID band results, days of 15:
 
 ---
 
-*Updated October 2026*
+*Updated November 2026*
 
 Mark Hendricks
 
