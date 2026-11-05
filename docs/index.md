@@ -188,6 +188,7 @@ Median absolute hedge error, index points:
 - The comparator is the analytic Black-76 delta read directly from the marks.
 - Paired daily tests: five engines are clearly behind the delta (Wilcoxon p at most 0.0043); unconditional replay, the block bootstrap and PCA-Gaussian are not distinguishable from it on 15 days, and no engine's median beats the delta's in any of 10 draw streams.
 - The kernel's 2022 edge is not distinguishable from zero on 17 days (Wilcoxon p = 0.49).
+- With an option added to the hedge, a predeclared test is also a null: pooled VolGAN's worst-three COVID loss (49.1) separates from neither delta-vega (47.0) nor the training-selected historical-regression replay (34.8), Holm-adjusted p = 1.0 for both.
 
 [Investigation 2](discussions/quant_ai/Hedging.ipynb)
 
