@@ -51,6 +51,7 @@ Pooled q50 MAE on 881 daily one-session origins across ES, NQ, TY, CL and GC:
 - The comparator is HAR or log-HAR, chosen per market on an earlier 252-origin grid.
 - Scoring against no-change measures skill at forecasting the change, not persistence.
 - The pooled 1.1% to 2.0% gap carries no paired test. Tested market by market, the models' edge is detectable only on TY (all four cells, p at most 0.00087), and three competitive cells on ES and NQ carry a detectable classical edge at p < 0.10.
+- On 298 fresh origins from 2026-07-22 to 2026-11-03, on NQ, TY, CL and GC, no model wins against the carried comparators, and the verdict still moves with the comparator choice: the design's own reselection picks Rolling mean 63 on TY, against which all four models win (ratios 0.807 to 0.841, p at most 0.0028).
 
 [The pool](discussions/quant_ai/Investigation%201%20-%20Across%20Five%20Markets.md#the-pool)
 
@@ -97,6 +98,7 @@ Chronos-2 on the nine-sector basket, post-release, five-session target issued we
 - Nominal coverage is 80%. At the five-session horizon covariates improve the median and leave the quantiles unusable as bands.
 - Issued daily at one session, the center flips: target-only 4.90 beats the classical 5.10 and the conditioned 5.30 (p = 0.043 on identical origins).
 - The classical arm is a point forecast, which is why it has no coverage to report.
+- On 74 fresh daily origins per horizon, the conditioned arm now loses to the classical comparator at one session (ratio 1.110, p = 0.049), and the band collapse repeats: conditioned q10-q90 coverage is 27 of 74 at one session and 34 of 74 at five.
 
 [Investigation 4](discussions/quant_ai/Covariates%20and%20Portfolio%20Volatility.md#basket-volatility-with-covariates)
 
