@@ -5,9 +5,9 @@ author: "Mark Hendricks"
 
 # Quant AI
 
-**Time-Series Foundation Models:** [Across Five Markets](discussions/quant_ai/Investigation%201%20-%20Across%20Five%20Markets.md) → [How Time-Series Foundation Models Work](discussions/quant_ai/How%20Time-Series%20Foundation%20Models%20Work.md) → [Research](discussions/quant_ai/Research.md).
-
-**Generative Scenario Analysis:** [One-Day Surfaces](discussions/quant_ai/Investigation%201%20-%20One-Day%20Surfaces.md) → [What a Generative Model Is](discussions/quant_ai/What%20a%20Generative%20Model%20Is.ipynb) → [The Research Record](discussions/quant_ai/The%20Research%20Record.md).
+Two modules test released AI models on volatility work: forecasting scored
+against classical comparators, and scenario generation scored on the option
+book it would hedge.
 
 ## Time-Series Foundation Models
 
@@ -18,20 +18,20 @@ questions, each with its own design.
 [Background](discussions/quant_ai/Background.md) · [Investigations](discussions/quant_ai/Investigations.md) · [Further Analysis](discussions/quant_ai/Further%20Analysis.md) · [Research](discussions/quant_ai/Research.md)
 :::
 
+<div class="section-tiles">
+<a class="section-tile" href="discussions/quant_ai/Investigation%201%20-%20Across%20Five%20Markets.html"><span class="section-tile-art"><svg viewBox="0 0 160 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path class="ax" d="M14,82H150"/><path class="ln" d="M18,68L38,50L56,60L76,34L96,46L116,28L136,36L150,20"/><circle class="dt" cx="150" cy="20" r="3.6"/></svg></span><span class="section-tile-label">Do released models beat the classical forecast?</span></a>
+<a class="section-tile" href="discussions/quant_ai/Comparator%20Choice%20and%20Forecast%20Horizon.html"><span class="section-tile-art"><svg viewBox="0 0 160 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path class="ax" d="M14,82H150"/><rect class="bp" x="22" y="48" width="18" height="34" rx="2"/><rect class="bp" x="50" y="30" width="18" height="52" rx="2"/><rect class="bp" x="78" y="56" width="18" height="26" rx="2"/><rect class="ba" x="106" y="20" width="18" height="62" rx="2"/><rect class="bp" x="134" y="38" width="18" height="44" rx="2"/></svg></span><span class="section-tile-label">Does the comparator or horizon change the answer?</span></a>
+<a class="section-tile" href="discussions/quant_ai/Held-Out%20Adaptation.html"><span class="section-tile-art"><svg viewBox="0 0 160 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path class="ed" d="M42,48H54M80,48H92M118,48H130"/><rect class="bp" x="16" y="32" width="26" height="32" rx="5"/><rect class="bp" x="54" y="32" width="26" height="32" rx="5"/><rect class="bp" x="92" y="32" width="26" height="32" rx="5"/><rect class="ba" x="130" y="32" width="26" height="32" rx="5"/></svg></span><span class="section-tile-label">Does adaptation help held-out markets?</span></a>
+<a class="section-tile" href="discussions/quant_ai/Covariates%20and%20Portfolio%20Volatility.html"><span class="section-tile-art"><svg viewBox="0 0 160 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path class="fw" d="M18,38C56,28 92,52 148,32L148,60C92,80 56,56 18,66Z"/><path class="ln" d="M18,38C56,28 92,52 148,32"/><path class="hl" d="M18,66C56,56 92,80 148,60"/></svg></span><span class="section-tile-label">Do covariates improve the forecast?</span></a>
+<a class="section-tile" href="discussions/quant_ai/Clock%20and%20Calendar%20Information.html"><span class="section-tile-art"><svg viewBox="0 0 160 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path class="ln" d="M40,38C64,20 96,20 120,38"/><path class="hl" d="M120,60C96,78 64,78 40,60"/><circle class="dn" cx="30" cy="49" r="6"/><circle class="dt" cx="130" cy="49" r="6"/></svg></span><span class="section-tile-label">What changes at intraday frequencies?</span></a>
+</div>
+
 Every scored origin follows the latest public release among the 4 scored zero-shot
 models; later-added comparators are shown as context.
 
 - Five questions. Every design is zero-shot except Investigation 3.
 - The five forecast objects differ, so no two results are combined and there is no overall win rate.
 - Each is read against the published record, collected in [Research](discussions/quant_ai/Research.md).
-
-| Question | Forecast object |
-|---|---|
-| [1. Do released models beat the classical forecast?](discussions/quant_ai/Investigation%201%20-%20Across%20Five%20Markets.md) | Next-session realized volatility, regular session, issued daily; ES, NQ, TY, CL, GC |
-| [2. Does the comparator or horizon change the answer?](discussions/quant_ai/Comparator%20Choice%20and%20Forecast%20Horizon.md) | Realized volatility 1, 5 and 22 sessions ahead; 26-future panel |
-| [3. Does adaptation help held-out markets?](discussions/quant_ai/Held-Out%20Adaptation.md) | Realized-volatility quantiles on futures excluded from fitting |
-| [4. Do covariates improve the forecast?](discussions/quant_ai/Covariates%20and%20Portfolio%20Volatility.md) | Forward five-session volatility of a nine-sector basket, issued weekly |
-| [5. What changes at intraday frequencies?](discussions/quant_ai/Clock%20and%20Calendar%20Information.md) | Hourly futures and equity realized volatility, and a frozen event grid |
 
 :::{div} part-jump
 [Jump to Generative Scenario Analysis ↓](#generative-scenario-analysis)
@@ -134,11 +134,11 @@ they imply, the hedge they choose, and the five-day paths they generate.
 [Background](discussions/quant_ai/Background%20-%20Scenarios.md) · [Investigations](discussions/quant_ai/Investigations%20-%20Scenarios.md) · [Further Analysis](discussions/quant_ai/Further%20Analysis%20-%20Scenarios.md) · [Research](discussions/quant_ai/The%20Research%20Record.md)
 :::
 
-| Question | Generated object and loss |
-|---|---|
-| [1. Can a generator cover the tail without breaking the surface?](discussions/quant_ai/Investigation%201%20-%20One-Day%20Surfaces.md) | Next-day 114-coordinate volatility surface, scored on 95% and 99% tail coverage and on G2/G3 checks; G1 by construction, G4 untested |
-| [2. Does a scenario hedge beat the delta?](discussions/quant_ai/Hedging.ipynb) | Joint return-and-surface draws, with PCA, GARCH and VAE refitted on the 115-coordinate object, scored on hedge error |
-| [3. Does the design hold at five days?](discussions/quant_ai/Multi-Day%20Paths.ipynb) | Cumulative five-day surface moves, scored on path distribution and coverage |
+<div class="section-tiles">
+<a class="section-tile" href="discussions/quant_ai/Investigation%201%20-%20One-Day%20Surfaces.html"><span class="section-tile-art"><svg viewBox="0 0 160 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path class="ed" d="M18,74L138,58M24,58L144,42M30,42L150,26"/><path class="ed" d="M18,74L30,42M58,69L70,37M98,63L110,31M138,58L150,26"/></svg></span><span class="section-tile-label">Can a generator cover the tail without breaking the surface?</span></a>
+<a class="section-tile" href="discussions/quant_ai/Hedging.html"><span class="section-tile-art"><svg viewBox="0 0 160 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path class="ax" d="M14,70H150"/><path class="ln" d="M20,70H86L148,24"/><path class="hl" d="M86,80V60"/></svg></span><span class="section-tile-label">Does a scenario hedge beat the delta?</span></a>
+<a class="section-tile" href="discussions/quant_ai/Multi-Day%20Paths.html"><span class="section-tile-art"><svg viewBox="0 0 160 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path class="fan" d="M76,44L98,44L118,58L146,50"/><path class="fan" d="M76,44L98,56L120,50L146,72"/><path class="ln" d="M16,60L38,52L56,64L76,44"/><path class="hl" d="M76,44L98,30L118,36L146,16"/></svg></span><span class="section-tile-label">Does the design hold at five days?</span></a>
+</div>
 
 ### Finding 1. Repairing the surface does not move the tail
 

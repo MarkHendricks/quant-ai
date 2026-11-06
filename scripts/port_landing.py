@@ -13,6 +13,11 @@ renames = next(ast.literal_eval(node.value) for node in tree.body
                and any(isinstance(t, ast.Name) and t.id == 'DISC_RENAMES' for t in node.targets))
 for old, new in renames.items():
     source = source.replace(quote(old, safe='-_.,()'), quote(new, safe='-_.,()'))
+# raw-HTML tile hrefs end in .html, so the full-name pass above misses them;
+# rewrite the URL-encoded stems too (encoded stems occur only inside hrefs)
+for old, new in renames.items():
+    old_stem, new_stem = old.rsplit('.', 1)[0], new.rsplit('.', 1)[0]
+    source = source.replace(quote(old_stem, safe='-_.,()'), quote(new_stem, safe='-_.,()'))
 source = source.replace('discussions/', 'discussions/quant_ai/')
 destination = ROOT / 'docs/index.md'
 heading = '# Quant AI'
