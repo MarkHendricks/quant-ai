@@ -19,7 +19,7 @@
 # docs/index.md, which open the two modules in the same order.
 
 content_repo: ../teaching-content
-content_sha: 642a44711ccc77022da91256eb4efcb6e830fd00
+content_sha: 6bbf0aed6d169e2852f8758c8e1a8da773019c49
 
 chapters:
   - title: Time-Series Foundation Models
